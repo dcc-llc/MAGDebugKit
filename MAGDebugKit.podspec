@@ -37,7 +37,7 @@ Pod::Spec.new do |s|
   #s.frameworks = 'UIKit'
 
   s.dependency 'libextobjc', '~> 0.4'
-  s.dependency 'CocoaLumberjack', '~> 3.4'
+  s.dependency 'CocoaLumberjack/Swift', '~> 3.4'
   s.dependency 'CocoaAsyncSocket', '~> 7.6'
 
 end
