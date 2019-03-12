@@ -1,6 +1,5 @@
 #import "MAGPanelInputCell.h"
 #import "MAGPanelGeometry.h"
-#import <Masonry/Masonry.h>
 
 
 @interface MAGPanelInputCell () <UITextFieldDelegate>
@@ -37,44 +36,39 @@
 }
 
 - (void)setupMAGPanelInputCell {
-	[self mas_makeConstraints:^(MASConstraintMaker *make) {
-			make.height.equalTo(@(magPanelCellHeight));
-		}];
-	
-	self.backgroundColor = [UIColor magPanelCellBackground];
+    self.translatesAutoresizingMaskIntoConstraints = NO;
+    [[self.heightAnchor constraintEqualToConstant:magPanelCellHeight] setActive:YES];
 
-	self.label = [[UILabel alloc] init];
-	
-	self.label = [[UILabel alloc] init];
-	self.label.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
-	self.label.textColor = [UIColor magPanelCellText];
-	self.label.text = self.title;
-	[self addSubview:self.label];
+    self.backgroundColor = [UIColor magPanelCellBackground];
 
-	self.input = [[UITextField alloc] init];
-	self.input.text = self.value;
-	self.input.placeholder = self.title;
-	self.input.textAlignment = NSTextAlignmentRight;
-	self.input.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
-	self.input.delegate = self;
-	[self.input addTarget:self action:@selector(inputChanged:) forControlEvents:UIControlEventEditingChanged];
-	[self addSubview:self.input];
+    self.label = [[UILabel alloc] init];
+    self.label.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    self.label.textColor = [UIColor magPanelCellText];
+    self.label.text = self.title;
+    [self addSubview:self.label];
 
-	[self.label mas_makeConstraints:^(MASConstraintMaker *make) {
-			make.leading.equalTo(self).with.insets(magPanelTitleCellEdgeInsets);
-			make.centerY.equalTo(self);
-		}];
-	
-	[self.input mas_makeConstraints:^(MASConstraintMaker *make) {
-			make.leading.equalTo(self.label.mas_trailing).with.offset(magPanelCellElementsOffset);
-			make.top.equalTo(self).with.insets(magPanelCellEdgeInsets);
-			make.bottom.equalTo(self).with.insets(magPanelCellEdgeInsets);
-			make.trailing.equalTo(self).with.insets(magPanelCellEdgeInsets);
-			make.width.greaterThanOrEqualTo(self).dividedBy(3.0f);
-		}];
-	
-	[self.input setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
-	[self.label setContentHuggingPriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisHorizontal];
+    self.input = [[UITextField alloc] init];
+    self.input.text = self.value;
+    self.input.placeholder = self.title;
+    self.input.textAlignment = NSTextAlignmentRight;
+    self.input.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    self.input.delegate = self;
+    [self.input addTarget:self action:@selector(inputChanged:) forControlEvents:UIControlEventEditingChanged];
+    [self addSubview:self.input];
+
+    self.label.translatesAutoresizingMaskIntoConstraints = NO;
+    [[self.label.leadingAnchor constraintEqualToAnchor:self.leadingAnchor constant:magPanelTitleCellEdgeInsets.left] setActive:YES];
+    [[self.label.centerYAnchor constraintEqualToAnchor:self.centerYAnchor] setActive:YES];
+
+    self.input.translatesAutoresizingMaskIntoConstraints = NO;
+    [[self.input.leadingAnchor constraintEqualToAnchor:self.label.trailingAnchor constant:magPanelTitleCellEdgeInsets.left] setActive:YES];
+    [[self.input.trailingAnchor constraintEqualToAnchor:self.trailingAnchor constant:-magPanelTitleCellEdgeInsets.right] setActive:YES];
+    [[self.input.topAnchor constraintEqualToAnchor:self.topAnchor constant:magPanelTitleCellEdgeInsets.top] setActive:YES];
+    [[self.input.bottomAnchor constraintEqualToAnchor:self.bottomAnchor constant:-magPanelTitleCellEdgeInsets.bottom] setActive:YES];
+    [[self.input.widthAnchor constraintGreaterThanOrEqualToAnchor:self.widthAnchor multiplier:0.3f] setActive:YES];
+
+    [self.input setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
+    [self.label setContentHuggingPriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisHorizontal];
 }
 
 #pragma mark - Accessors

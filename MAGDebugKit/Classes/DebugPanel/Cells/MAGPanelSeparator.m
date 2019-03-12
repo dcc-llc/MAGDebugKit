@@ -1,6 +1,5 @@
 #import "MAGPanelSeparator.h"
 #import "MAGPanelGeometry.h"
-#import <Masonry/Masonry.h>
 
 
 @implementation MAGPanelSeparator
@@ -28,10 +27,9 @@
 }
 
 - (void)setupMAGPanelSeparator {
-	[self mas_makeConstraints:^(MASConstraintMaker *make) {
-			make.height.equalTo(@(magPanelSeparatorHeight));
-		}];
-	
+    self.translatesAutoresizingMaskIntoConstraints = NO;
+    [[self.heightAnchor constraintEqualToConstant:magPanelSeparatorHeight] setActive:YES];
+
 	self.backgroundColor = [UIColor magPanelSeparator];
 }
 

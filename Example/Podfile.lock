@@ -45,8 +45,6 @@ PODS:
     - CocoaAsyncSocket (~> 7.6)
     - CocoaLumberjack (~> 3.1)
     - libextobjc (~> 0.4)
-    - Masonry (~> 1.0)
-  - Masonry (1.0.2)
 
 DEPENDENCIES:
   - MAGDebugKit (from `../`)
@@ -56,7 +54,6 @@ SPEC REPOS:
     - CocoaAsyncSocket
     - CocoaLumberjack
     - libextobjc
-    - Masonry
 
 EXTERNAL SOURCES:
   MAGDebugKit:
@@ -66,8 +63,7 @@ SPEC CHECKSUMS:
   CocoaAsyncSocket: b9d5589f07baf9de8f34cc25abd4fcba28f13805
   CocoaLumberjack: 8311463ddf9ee86a06ef92a071dd656c89244500
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
-  MAGDebugKit: 7974adbdaf089383ef55dd4fd5e4d7b99499a0aa
-  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
+  MAGDebugKit: c7ddfab5083613b30bb2db3b3c7b9ae23e71270d
 
 PODFILE CHECKSUM: a6c78295e1d528436acc1ce0f978c23e3cadf891
 

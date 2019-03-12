@@ -1,6 +1,6 @@
 #import "MAGPanelPickerCell.h"
 #import "MAGPanelGeometry.h"
-#import <Masonry/Masonry.h>
+#import "UIView+Constraints.h"
 
 
 @interface MAGPanelPickerCell ()
@@ -42,53 +42,47 @@
 }
 
 - (void)setupMAGPanelPickerCell {
-	[self mas_makeConstraints:^(MASConstraintMaker *make) {
-			make.height.equalTo(@(magPanelCellHeight));
-		}];
-	
-	self.backgroundColor = [UIColor magPanelCellBackground];
+    self.translatesAutoresizingMaskIntoConstraints = NO;
+    [[self.heightAnchor constraintEqualToConstant:magPanelCellHeight] setActive:YES];
 
-	self.button = [UIButton buttonWithType:UIButtonTypeSystem];
-	self.button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-	self.button.contentEdgeInsets = magPanelCellEdgeInsets;
-	[self.button setTitle:nil forState:UIControlStateNormal];
-	[self.button addTarget:self action:@selector(buttonTap:) forControlEvents:UIControlEventTouchUpInside];
-	
-	[self addSubview:self.button];
-	[self.button mas_makeConstraints:^(MASConstraintMaker *make) {
-			make.edges.equalTo(self);
-		}];
+    self.backgroundColor = [UIColor magPanelCellBackground];
 
-	self.titleLabel = [[UILabel alloc] init];
-	self.titleLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
-	self.titleLabel.textColor = [UIColor magPanelCellText];
-	self.titleLabel.text = self.title;
-	[self addSubview:self.titleLabel];
-	[self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-			make.leading.equalTo(self).with.insets(magPanelCellEdgeInsets);
-			make.centerY.equalTo(self);
-		}];
-	
-	self.valueLabel = [[UILabel alloc] init];
-	self.valueLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
-	self.valueLabel.textColor = [UIColor magPanelCellValueText];
-	
-	if (self.renderer) {
-		self.valueLabel.text = self.renderer(self.value);
-	}
-	
-	[self addSubview:self.valueLabel];
-	[self.valueLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-			make.trailing.equalTo(self).with.insets(magPanelCellEdgeInsets);
-			make.baseline.equalTo(self.titleLabel);
-		}];
-	
-	self.textField = [[UITextField alloc] init];
-	self.textField.frame = CGRectZero;
-	[self addSubview:self.textField];
-	
-	self.pickerView = [[UIPickerView alloc] init];
-	self.inputView = self.pickerView;
+    self.button = [UIButton buttonWithType:UIButtonTypeSystem];
+    self.button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    self.button.contentEdgeInsets = magPanelCellEdgeInsets;
+    [self.button setTitle:nil forState:UIControlStateNormal];
+    [self.button addTarget:self action:@selector(buttonTap:) forControlEvents:UIControlEventTouchUpInside];
+
+    [self addSubviewWithConstrainsAround:self.button];
+
+    self.titleLabel = [[UILabel alloc] init];
+    self.titleLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    self.titleLabel.textColor = [UIColor magPanelCellText];
+    self.titleLabel.text = self.title;
+    [self addSubview:self.titleLabel];
+    self.titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    [[self.titleLabel.leadingAnchor constraintEqualToAnchor:self.leadingAnchor constant:magPanelCellEdgeInsets.left] setActive:YES];
+    [[self.titleLabel.centerYAnchor constraintEqualToAnchor:self.centerYAnchor] setActive:YES];
+
+    self.valueLabel = [[UILabel alloc] init];
+    self.valueLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    self.valueLabel.textColor = [UIColor magPanelCellValueText];
+
+    if (self.renderer) {
+        self.valueLabel.text = self.renderer(self.value);
+    }
+
+    [self addSubview:self.valueLabel];
+    self.valueLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    [[self.valueLabel.trailingAnchor constraintEqualToAnchor:self.trailingAnchor constant:-magPanelCellEdgeInsets.right] setActive:YES];
+    [[self.valueLabel.firstBaselineAnchor constraintEqualToAnchor:self.titleLabel.firstBaselineAnchor] setActive:YES];
+
+    self.textField = [[UITextField alloc] init];
+    self.textField.frame = CGRectZero;
+    [self addSubview:self.textField];
+
+    self.pickerView = [[UIPickerView alloc] init];
+    self.inputView = self.pickerView;
 }
 
 - (BOOL)becomeFirstResponder {

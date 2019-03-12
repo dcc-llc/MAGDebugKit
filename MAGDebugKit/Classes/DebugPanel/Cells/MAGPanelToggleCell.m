@@ -1,6 +1,5 @@
 #import "MAGPanelToggleCell.h"
 #import "MAGPanelGeometry.h"
-#import <Masonry/Masonry.h>
 
 
 @interface MAGPanelToggleCell ()
@@ -37,38 +36,35 @@
 }
 
 - (void)setupMAGPanelToggleCell {
-	[self mas_makeConstraints:^(MASConstraintMaker *make) {
-			make.height.equalTo(@(magPanelCellHeight));
-		}];
-	
-	self.backgroundColor = [UIColor magPanelCellBackground];
+    self.translatesAutoresizingMaskIntoConstraints = NO;
+    [[self.heightAnchor constraintEqualToConstant:magPanelCellHeight] setActive:YES];
 
-	self.label = [[UILabel alloc] init];
-	
-	self.label = [[UILabel alloc] init];
-	self.label.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
-	self.label.textColor = [UIColor magPanelCellText];
-	self.label.text = self.title;
-	[self addSubview:self.label];
+    self.backgroundColor = [UIColor magPanelCellBackground];
 
-	self.toggle = [[UISwitch alloc] init];
-	self.toggle.on = self.value.boolValue;
-	[self.toggle addTarget:self action:@selector(switchToggle:) forControlEvents:UIControlEventValueChanged];
-	[self addSubview:self.toggle];
+    self.label = [[UILabel alloc] init];
 
-	[self.label mas_makeConstraints:^(MASConstraintMaker *make) {
-			make.leading.equalTo(self).with.insets(magPanelCellEdgeInsets);
-			make.centerY.equalTo(self);
-		}];
-	
-	[self.toggle mas_makeConstraints:^(MASConstraintMaker *make) {
-			make.leading.equalTo(self.label.mas_trailing);
-			make.trailing.equalTo(self).with.insets(magPanelCellEdgeInsets);
-			make.centerY.equalTo(self);
-		}];
-	
-	[self.toggle setContentHuggingPriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisHorizontal];
-	[self.label setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
+    self.label = [[UILabel alloc] init];
+    self.label.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    self.label.textColor = [UIColor magPanelCellText];
+    self.label.text = self.title;
+    [self addSubview:self.label];
+
+    self.toggle = [[UISwitch alloc] init];
+    self.toggle.on = self.value.boolValue;
+    [self.toggle addTarget:self action:@selector(switchToggle:) forControlEvents:UIControlEventValueChanged];
+    [self addSubview:self.toggle];
+
+    self.label.translatesAutoresizingMaskIntoConstraints = NO;
+    [[self.label.leadingAnchor constraintEqualToAnchor:self.leadingAnchor constant:magPanelCellEdgeInsets.left] setActive:YES];
+    [[self.label.centerYAnchor constraintEqualToAnchor:self.centerYAnchor] setActive:YES];
+
+    self.toggle.translatesAutoresizingMaskIntoConstraints = NO;
+    [[self.toggle.leadingAnchor constraintEqualToAnchor:self.label.trailingAnchor] setActive:YES];
+    [[self.toggle.trailingAnchor constraintEqualToAnchor:self.trailingAnchor constant:-magPanelCellEdgeInsets.right] setActive:YES];
+    [[self.toggle.centerYAnchor constraintEqualToAnchor:self.centerYAnchor] setActive:YES];
+
+    [self.toggle setContentHuggingPriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisHorizontal];
+    [self.label setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
 }
 
 #pragma mark - Accessors

@@ -10,7 +10,7 @@
 #import "MAGPanelPickerManager.h"
 #import "MAGSettingsReactor.h"
 #import "MAGDebugPanelRespondersManager.h"
-#import <Masonry/Masonry.h>
+#import "UIView+Constraints.h"
 
 
 @interface MAGSettingsPanelVC ()
@@ -52,18 +52,11 @@
 	scroller.bounces = YES;
 	scroller.alwaysBounceVertical = YES;
 	scroller.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
-	
-	[self.view addSubview:scroller];
-	[scroller mas_makeConstraints:^(MASConstraintMaker *make) {
-			make.edges.equalTo(self.view);
-		}];
 
-	[scroller addSubview:self.stackView];
-	[self.stackView mas_makeConstraints:^(MASConstraintMaker *make) {
-			make.edges.equalTo(scroller);
-			make.width.equalTo(self.view);
-		}];
-	
+    [self.view addSubviewWithConstrainsAround:scroller];
+    [scroller addSubviewWithConstrainsAround:self.stackView];
+    [[self.stackView.widthAnchor constraintEqualToAnchor:self.view.widthAnchor] setActive:YES];
+
 	self.respondersManager = [[MAGDebugPanelRespondersManager alloc] init];
 	self.respondersManager.scrollView = scroller;
 	

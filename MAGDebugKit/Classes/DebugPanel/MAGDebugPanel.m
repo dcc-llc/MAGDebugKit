@@ -6,8 +6,6 @@
 #import "MAGDebugPanelSettingsKeys.h"
 #import "MAGLogging.h"
 #import "MAGLoggingSettingsVC.h"
-
-#import <Masonry/Masonry.h>
 #import <libextobjc/extobjc.h>
 
 

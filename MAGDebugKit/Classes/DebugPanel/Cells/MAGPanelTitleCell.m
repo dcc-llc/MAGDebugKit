@@ -1,6 +1,6 @@
 #import "MAGPanelTitleCell.h"
 #import "MAGPanelGeometry.h"
-#import <Masonry/Masonry.h>
+#import "UIView+Constraints.h"
 
 
 @interface MAGPanelTitleCell ()
@@ -36,17 +36,15 @@
 }
 
 - (void)setupMAGPanelTitleCell {
-	self.backgroundColor = [UIColor clearColor];
+    self.backgroundColor = [UIColor clearColor];
 
-	self.label = [[UILabel alloc] init];
-	self.label.font = [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote];
-	self.label.textColor = [UIColor magPanelTitleCellText];
-	self.label.text = self.title;
-	[self addSubview:self.label];
+    self.label = [[UILabel alloc] init];
+    self.label.font = [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote];
+    self.label.textColor = [UIColor magPanelTitleCellText];
+    self.label.text = self.title;
+    [self addSubview:self.label];
 
-	[self.label mas_makeConstraints:^(MASConstraintMaker *make) {
-			make.edges.equalTo(self).with.insets(magPanelTitleCellEdgeInsets);
-		}];
+    [self addSubviewWithConstrainsAround:self.label insets:magPanelTitleCellEdgeInsets];
 }
 
 #pragma mark - Accessors

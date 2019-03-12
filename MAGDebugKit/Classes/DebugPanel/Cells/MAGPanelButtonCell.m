@@ -1,6 +1,6 @@
 #import "MAGPanelButtonCell.h"
 #import "MAGPanelGeometry.h"
-#import <Masonry/Masonry.h>
+#import "UIView+Constraints.h"
 
 
 @interface MAGPanelButtonCell ()
@@ -36,24 +36,23 @@
 }
 
 - (void)setupMAGPanelButtonCell {
-	[self mas_makeConstraints:^(MASConstraintMaker *make) {
-			make.height.equalTo(@(magPanelCellHeight));
-		}];
-	
-	self.backgroundColor = [UIColor magPanelCellBackground];
+    self.translatesAutoresizingMaskIntoConstraints = NO;
+    [[self.heightAnchor constraintEqualToConstant:magPanelCellHeight] setActive:YES];
 
-	self.button = [UIButton buttonWithType:UIButtonTypeSystem];
-	self.button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-	self.button.contentEdgeInsets = magPanelCellEdgeInsets;
-	[self.button setTitleColor:[UIColor magPanelCellText] forState:UIControlStateNormal];
-	[self.button setTitle:self.title forState:UIControlStateNormal];
-	self.button.titleLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
-	[self.button addTarget:self action:@selector(buttonTap:) forControlEvents:UIControlEventTouchUpInside];
-	
-	[self addSubview:self.button];
-	[self.button mas_makeConstraints:^(MASConstraintMaker *make) {
-			make.edges.equalTo(self);
-		}];
+    self.backgroundColor = [UIColor magPanelCellBackground];
+
+    self.button = [UIButton buttonWithType:UIButtonTypeSystem];
+    self.button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    self.button.contentEdgeInsets = magPanelCellEdgeInsets;
+    [self.button setTitleColor:[UIColor magPanelCellText] forState:UIControlStateNormal];
+    [self.button setTitle:self.title forState:UIControlStateNormal];
+    self.button.titleLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    [self.button addTarget:self action:@selector(buttonTap:) forControlEvents:UIControlEventTouchUpInside];
+
+    [self addSubview:self.button];
+
+    [self addSubviewWithConstrainsAround:self.button];
+    [[self.button.heightAnchor constraintEqualToConstant:magPanelCellHeight] setActive:YES];
 }
 
 #pragma mark - Accessors
