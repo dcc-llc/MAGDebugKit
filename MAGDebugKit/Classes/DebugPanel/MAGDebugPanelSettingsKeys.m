@@ -1,10 +1,6 @@
 #import "MAGDebugPanelSettingsKeys.h"
 
 
-NSString *const MAGDebugPanelSettingKeyOverviewEnabled = @"MAGDebugPanelSettingKeyOverviewEnabled";
-NSString *const MAGDebugPanelSettingKeyOverviewFlowMode = @"MAGDebugPanelSettingKeyOverviewFlowMode";
-
-
 NSString *const MAGDebugPanelSettingKeyLoggingVerbosity = @"MAGDebugPanelSettingKeyLoggingVerbosity";
 NSString *const MAGDebugPanelSettingKeyFileLoggingEnabled = @"MAGDebugPanelSettingKeyFileLoggingEnabled";
 NSString *const MAGDebugPanelSettingKeyASLLoggingEnabled = @"MAGDebugPanelSettingKeyASLLoggingEnabled";

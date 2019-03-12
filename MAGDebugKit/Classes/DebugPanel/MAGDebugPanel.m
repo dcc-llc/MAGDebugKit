@@ -1,11 +1,9 @@
 #import "MAGDebugPanel.h"
-#import "MAGDebugOverviewSettingsVC.h"
 #import "MAGLoggingSettingsVC.h"
 #import "MAGSandboxBrowserVC.h"
 #import "MAGUDSettingsStorage.h"
 
 #import "MAGDebugPanelSettingsKeys.h"
-#import "MAGDebugOverview.h"
 #import "MAGLogging.h"
 #import "MAGLoggingSettingsVC.h"
 
@@ -190,13 +188,6 @@
 			[self loggingAction];
 		}];
 	
-	[self addTitle:@"Views"];
-
-	[self addButtonWithTitle:@"Overview" action:^{
-			@strongify(self);
-			[self overviewAction];
-		}];
-	
 	[self addTitle:@"Sandbox"];
 
 	[self addButtonWithTitle:@"Disk browser" action:^{
@@ -212,11 +203,6 @@
 	[self.navigationController pushViewController:vc animated:YES];
 }
 
-- (void)overviewAction {
-	MAGDebugOverviewSettingsVC *vc = [[MAGDebugOverviewSettingsVC alloc] initWithSettings:self.settingsReactor];
-	[self.navigationController pushViewController:vc animated:YES];
-}
-
 - (void)sandboxBrowserAction {
 	MAGSandboxBrowserVC *vc = [[MAGSandboxBrowserVC alloc] initWithURL:nil];
 	[self.navigationController pushViewController:vc animated:YES];
@@ -225,33 +211,6 @@
 #pragma mark - Private methods
 
 + (void)configureReactionsFor:(id<MAGSettingsReactor>) settings {
-	typeof(settings) __weak weakSettings = settings;
-	
-	// Overview.
-	[settings setReaction:^(NSNumber *value) {
-			if (value.boolValue) {
-				NSNumber *flowValue = [weakSettings settingForKey:MAGDebugPanelSettingKeyOverviewFlowMode];
-				if (flowValue.boolValue) {
-					[MAGDebugOverview addToWindow];
-				} else {
-					[MAGDebugOverview addToStatusBar];
-				}
-			} else {
-				[MAGDebugOverview dismissSharedInstance];
-			}
-	} forKey:MAGDebugPanelSettingKeyOverviewEnabled defaultValue:@NO];
-
-	[settings setReaction:^(NSNumber *value) {
-		NSNumber *enabledValue = [weakSettings settingForKey:MAGDebugPanelSettingKeyOverviewEnabled];
-		if (enabledValue.boolValue) {
-				if (value.boolValue) {
-					[MAGDebugOverview addToWindow];
-				} else {
-					[MAGDebugOverview addToStatusBar];
-				}
-		}
-	} forKey:MAGDebugPanelSettingKeyOverviewFlowMode defaultValue:@NO];
-	
 	// Logging.
 	[settings setReaction:^(NSNumber *value) {
 			MAGLoggingLevel level = [value unsignedIntegerValue];
