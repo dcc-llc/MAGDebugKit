@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/dcc-llc/MAGDebugKit.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '10.0'
 
   s.source_files = 'MAGDebugKit/Classes/**/*'
   s.resource_bundles = {
@@ -37,7 +37,7 @@ Pod::Spec.new do |s|
   #s.frameworks = 'UIKit'
 
   s.dependency 'libextobjc', '~> 0.4'
-  s.dependency 'CocoaLumberjack', '~> 3.1'
+  s.dependency 'CocoaLumberjack', '~> 3.4'
   s.dependency 'CocoaAsyncSocket', '~> 7.6'
 
 end

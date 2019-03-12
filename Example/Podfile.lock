@@ -1,49 +1,46 @@
 PODS:
-  - CocoaAsyncSocket (7.6.0)
-  - CocoaLumberjack (3.1.0):
-    - CocoaLumberjack/Default (= 3.1.0)
-    - CocoaLumberjack/Extensions (= 3.1.0)
-  - CocoaLumberjack/Default (3.1.0)
-  - CocoaLumberjack/Extensions (3.1.0):
-    - CocoaLumberjack/Default
-  - libextobjc (0.4.1):
-    - libextobjc/EXTADT (= 0.4.1)
-    - libextobjc/EXTConcreteProtocol (= 0.4.1)
-    - libextobjc/EXTKeyPathCoding (= 0.4.1)
-    - libextobjc/EXTNil (= 0.4.1)
-    - libextobjc/EXTSafeCategory (= 0.4.1)
-    - libextobjc/EXTScope (= 0.4.1)
-    - libextobjc/EXTSelectorChecking (= 0.4.1)
-    - libextobjc/EXTSynthesize (= 0.4.1)
-    - "libextobjc/NSInvocation+EXT (= 0.4.1)"
-    - "libextobjc/NSMethodSignature+EXT (= 0.4.1)"
-    - libextobjc/RuntimeExtensions (= 0.4.1)
-    - libextobjc/UmbrellaHeader (= 0.4.1)
-  - libextobjc/EXTADT (0.4.1):
+  - CocoaAsyncSocket (7.6.3)
+  - CocoaLumberjack (3.5.1):
+    - CocoaLumberjack/Core (= 3.5.1)
+  - CocoaLumberjack/Core (3.5.1)
+  - libextobjc (0.6):
+    - libextobjc/EXTADT (= 0.6)
+    - libextobjc/EXTConcreteProtocol (= 0.6)
+    - libextobjc/EXTKeyPathCoding (= 0.6)
+    - libextobjc/EXTNil (= 0.6)
+    - libextobjc/EXTSafeCategory (= 0.6)
+    - libextobjc/EXTScope (= 0.6)
+    - libextobjc/EXTSelectorChecking (= 0.6)
+    - libextobjc/EXTSynthesize (= 0.6)
+    - "libextobjc/NSInvocation+EXT (= 0.6)"
+    - "libextobjc/NSMethodSignature+EXT (= 0.6)"
+    - libextobjc/RuntimeExtensions (= 0.6)
+    - libextobjc/UmbrellaHeader (= 0.6)
+  - libextobjc/EXTADT (0.6):
     - libextobjc/RuntimeExtensions
-  - libextobjc/EXTConcreteProtocol (0.4.1):
+  - libextobjc/EXTConcreteProtocol (0.6):
     - libextobjc/RuntimeExtensions
-  - libextobjc/EXTKeyPathCoding (0.4.1):
+  - libextobjc/EXTKeyPathCoding (0.6):
     - libextobjc/RuntimeExtensions
-  - libextobjc/EXTNil (0.4.1):
+  - libextobjc/EXTNil (0.6):
     - libextobjc/RuntimeExtensions
-  - libextobjc/EXTSafeCategory (0.4.1):
+  - libextobjc/EXTSafeCategory (0.6):
     - libextobjc/RuntimeExtensions
-  - libextobjc/EXTScope (0.4.1):
+  - libextobjc/EXTScope (0.6):
     - libextobjc/RuntimeExtensions
-  - libextobjc/EXTSelectorChecking (0.4.1):
+  - libextobjc/EXTSelectorChecking (0.6):
     - libextobjc/RuntimeExtensions
-  - libextobjc/EXTSynthesize (0.4.1):
+  - libextobjc/EXTSynthesize (0.6):
     - libextobjc/RuntimeExtensions
-  - "libextobjc/NSInvocation+EXT (0.4.1)":
+  - "libextobjc/NSInvocation+EXT (0.6)":
     - libextobjc/RuntimeExtensions
-  - "libextobjc/NSMethodSignature+EXT (0.4.1)":
+  - "libextobjc/NSMethodSignature+EXT (0.6)":
     - libextobjc/RuntimeExtensions
-  - libextobjc/RuntimeExtensions (0.4.1)
-  - libextobjc/UmbrellaHeader (0.4.1)
+  - libextobjc/RuntimeExtensions (0.6)
+  - libextobjc/UmbrellaHeader (0.6)
   - MAGDebugKit (0.8.1):
     - CocoaAsyncSocket (~> 7.6)
-    - CocoaLumberjack (~> 3.1)
+    - CocoaLumberjack (~> 3.4)
     - libextobjc (~> 0.4)
 
 DEPENDENCIES:
@@ -60,10 +57,10 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CocoaAsyncSocket: b9d5589f07baf9de8f34cc25abd4fcba28f13805
-  CocoaLumberjack: 8311463ddf9ee86a06ef92a071dd656c89244500
-  libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
-  MAGDebugKit: c7ddfab5083613b30bb2db3b3c7b9ae23e71270d
+  CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
+  CocoaLumberjack: 2101f8a5508197a305e737d16c5c2e9e2157628c
+  libextobjc: aed8b7d2b07f511c1a7ecaacb33ea03e327c69b7
+  MAGDebugKit: c3a1b74f051fc01e09538ecc7c502f05256d52ee
 
 PODFILE CHECKSUM: a6c78295e1d528436acc1ce0f978c23e3cadf891
 
