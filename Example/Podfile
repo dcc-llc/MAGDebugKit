@@ -3,7 +3,6 @@ use_frameworks!
 target 'MAGDebugKit_Example' do
 
   pod 'MAGDebugKit', :path => '../'
-  pod 'MAGMatveevReusable', :git => 'https://github.com/Magora-IOS/MAGMatveevReusable.git'
 
   target 'MAGDebugKit_Tests' do
     inherit! :search_paths
