@@ -3,7 +3,6 @@
 #import "MAGRentgenSettingsVC.h"
 #import "MAGLoggingSettingsVC.h"
 #import "MAGSandboxBrowserVC.h"
-#import "MAGVCLifecycleLoggingSettingsVC.h"
 #import "MAGUDSettingsStorage.h"
 
 #import "MAGDebugPanelSettingsKeys.h"
@@ -11,7 +10,6 @@
 #import "MAGLogging.h"
 #import "MAGRentgen.h"
 #import "MAGTapRentgen.h"
-#import "MAGVCLifecycleLogging.h"
 #import "MAGLoggingSettingsVC.h"
 
 #import <Masonry/Masonry.h>
@@ -207,11 +205,6 @@
 			[self rentgenAction];
 		}];
 
-	[self addButtonWithTitle:@"VC lifecycle" action:^{
-			@strongify(self);
-			[self vcLifecycleAction];
-		}];
-
 	[self addTitle:@"Sandbox"];
 
 	[self addButtonWithTitle:@"Disk browser" action:^{
@@ -234,11 +227,6 @@
 
 - (void)rentgenAction {
 	MAGRentgenSettingsVC *vc = [[MAGRentgenSettingsVC alloc] initWithSettings:self.settingsReactor];
-	[self.navigationController pushViewController:vc animated:YES];
-}
-
-- (void)vcLifecycleAction {
-	MAGVCLifecycleLoggingSettingsVC *vc = [[MAGVCLifecycleLoggingSettingsVC alloc] initWithSettings:self.settingsReactor];
 	[self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -331,16 +319,6 @@
 	[settings setReaction:^(NSNumber *value) {
 			[MAGLogging sharedInstance].remoteLoggingEnabled = value.boolValue;
 		} forKey:MAGDebugPanelSettingKeyAntennaLoggingEnabled defaultValue:@NO];
-
-	
-	// VC lifecycle logging.
-	[settings setReaction:^(NSNumber *value) {
-			if (value.boolValue) {
-				[MAGVCLifecycleLogging enableInitDeallocLogging];
-			} else {
-				[MAGVCLifecycleLogging disableInitDeallocLogging];
-			}
-		} forKey:MAGDebugPanelSettingKeyLogVCLifecycleEnabled defaultValue:@NO];
 }
 
 @end
