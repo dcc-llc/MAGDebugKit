@@ -15,8 +15,8 @@ PODS:
     - libextobjc/EXTScope (= 0.4.1)
     - libextobjc/EXTSelectorChecking (= 0.4.1)
     - libextobjc/EXTSynthesize (= 0.4.1)
-    - libextobjc/NSInvocation+EXT (= 0.4.1)
-    - libextobjc/NSMethodSignature+EXT (= 0.4.1)
+    - "libextobjc/NSInvocation+EXT (= 0.4.1)"
+    - "libextobjc/NSMethodSignature+EXT (= 0.4.1)"
     - libextobjc/RuntimeExtensions (= 0.4.1)
     - libextobjc/UmbrellaHeader (= 0.4.1)
   - libextobjc/EXTADT (0.4.1):
@@ -35,13 +35,13 @@ PODS:
     - libextobjc/RuntimeExtensions
   - libextobjc/EXTSynthesize (0.4.1):
     - libextobjc/RuntimeExtensions
-  - libextobjc/NSInvocation+EXT (0.4.1):
+  - "libextobjc/NSInvocation+EXT (0.4.1)":
     - libextobjc/RuntimeExtensions
-  - libextobjc/NSMethodSignature+EXT (0.4.1):
+  - "libextobjc/NSMethodSignature+EXT (0.4.1)":
     - libextobjc/RuntimeExtensions
   - libextobjc/RuntimeExtensions (0.4.1)
   - libextobjc/UmbrellaHeader (0.4.1)
-  - MAGDebugKit (0.8.0):
+  - MAGDebugKit (0.8.1):
     - CocoaAsyncSocket (~> 7.6)
     - CocoaLumberjack (~> 3.1)
     - libextobjc (~> 0.4)
@@ -55,9 +55,16 @@ DEPENDENCIES:
   - MAGDebugKit (from `../`)
   - MAGMatveevReusable (from `https://github.com/Magora-IOS/MAGMatveevReusable.git`)
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - CocoaAsyncSocket
+    - CocoaLumberjack
+    - libextobjc
+    - Masonry
+
 EXTERNAL SOURCES:
   MAGDebugKit:
-    :path: ../
+    :path: "../"
   MAGMatveevReusable:
     :git: https://github.com/Magora-IOS/MAGMatveevReusable.git
 
@@ -70,10 +77,10 @@ SPEC CHECKSUMS:
   CocoaAsyncSocket: b9d5589f07baf9de8f34cc25abd4fcba28f13805
   CocoaLumberjack: 8311463ddf9ee86a06ef92a071dd656c89244500
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
-  MAGDebugKit: 1dee92fb74ccc50c88b4482310f6fa9ce162c257
+  MAGDebugKit: 36c09c52353ac540ec2dd36c88c3c0dc248b778a
   MAGMatveevReusable: 4d875ac6429d809edf708c6b99c1bbbb6a2dc700
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
 
 PODFILE CHECKSUM: 0ae1416ad2c22e3fdea64ea505a091bbce7b7552
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.6.1

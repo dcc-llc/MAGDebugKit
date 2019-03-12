@@ -12,9 +12,5 @@
 #import "MAGDebugOverview.h"
 #import "MAGDebugPanel.h"
 
-#import "MAGAutoVideoRecorder.h"
-#import "MAGRealTimingVideoCreator.h"
-#import "MAGScreenshotCollector.h"
-#import "MAGVideoCreator.h"
 
 #endif /* MAGDebugKit_h */
