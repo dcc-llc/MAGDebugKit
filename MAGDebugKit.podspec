@@ -19,11 +19,11 @@ Pod::Spec.new do |s|
 
   s.description      = 'Developers Kit for convenient iOS App testing and QA.'
 
-  s.homepage         = 'https://github.com/Magora-IOS/MAGDebugKit'
+  s.homepage         = 'https://github.com/dcc-llc/MAGDebugKit'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'Apache License, Version 2.0', :file => 'LICENSE' }
   s.author           = { 'Evgeniy Stepanov' => 'stepanov@magora.systems' }
-  s.source           = { :git => 'https://github.com/Magora-IOS/MAGDebugKit.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/dcc-llc/MAGDebugKit.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '9.0'
