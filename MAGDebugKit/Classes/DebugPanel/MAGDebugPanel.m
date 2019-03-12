@@ -1,6 +1,5 @@
 #import "MAGDebugPanel.h"
 #import "MAGDebugOverviewSettingsVC.h"
-#import "MAGRentgenSettingsVC.h"
 #import "MAGLoggingSettingsVC.h"
 #import "MAGSandboxBrowserVC.h"
 #import "MAGUDSettingsStorage.h"
@@ -8,8 +7,6 @@
 #import "MAGDebugPanelSettingsKeys.h"
 #import "MAGDebugOverview.h"
 #import "MAGLogging.h"
-#import "MAGRentgen.h"
-#import "MAGTapRentgen.h"
 #import "MAGLoggingSettingsVC.h"
 
 #import <Masonry/Masonry.h>
@@ -200,11 +197,6 @@
 			[self overviewAction];
 		}];
 	
-	[self addButtonWithTitle:@"Rentgen" action:^{
-			@strongify(self);
-			[self rentgenAction];
-		}];
-
 	[self addTitle:@"Sandbox"];
 
 	[self addButtonWithTitle:@"Disk browser" action:^{
@@ -222,11 +214,6 @@
 
 - (void)overviewAction {
 	MAGDebugOverviewSettingsVC *vc = [[MAGDebugOverviewSettingsVC alloc] initWithSettings:self.settingsReactor];
-	[self.navigationController pushViewController:vc animated:YES];
-}
-
-- (void)rentgenAction {
-	MAGRentgenSettingsVC *vc = [[MAGRentgenSettingsVC alloc] initWithSettings:self.settingsReactor];
 	[self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -264,31 +251,6 @@
 				}
 		}
 	} forKey:MAGDebugPanelSettingKeyOverviewFlowMode defaultValue:@NO];
-	
-	// Rentgen.
-	[settings setReaction:^(NSNumber *value) {
-			if (value.boolValue) {
-				[[MAGTapRentgen sharedInstance] start];
-			} else {
-				[[MAGTapRentgen sharedInstance] stop];
-			}
-		} forKey:MAGDebugPanelSettingKeyRentgenRespondersEnabled defaultValue:@NO];
-
-	[settings setReaction:^(NSNumber *value) {
-			if (value.boolValue) {
-				[[MAGRentgen sharedInstance] start];
-			} else {
-				[[MAGRentgen sharedInstance] stop];
-			}
-		} forKey:MAGDebugPanelSettingKeyRentgenEnabled defaultValue:@NO];
-
-	[settings setReaction:^(NSNumber *value) {
-			[MAGRentgen sharedInstance].highlightAllViews = value.boolValue;
-		} forKey:MAGDebugPanelSettingKeyHighlightAllViewsEnabled defaultValue:@NO];
-	
-	[settings setReaction:^(NSNumber *value) {
-			[MAGRentgen sharedInstance].showClassCaptions = value.boolValue;
-		} forKey:MAGDebugPanelSettingKeyRentgenClassCaptionsEnabled defaultValue:@NO];	
 	
 	// Logging.
 	[settings setReaction:^(NSNumber *value) {
