@@ -149,9 +149,10 @@
 		NSString *appVersionString = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
 		NSString *fullVersionString = [NSString stringWithFormat:@"%@(%@)", appVersionString, appBuildString];
 		[formatter setPermanentLogValue:fullVersionString field:@"app_version"];
+        self.remoteLogger.logFormatter = formatter;
+        
 		[self updatePermanentLogValuesFromDictionary];
-		
-		self.remoteLogger.logFormatter = formatter;
+
 		[DDLog addLogger:self.remoteLogger];
 	} else {
 		[DDLog removeLogger:self.remoteLogger];
