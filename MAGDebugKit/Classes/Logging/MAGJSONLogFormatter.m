@@ -30,6 +30,10 @@
 			@"context": @(logMessage->_context),
 			@"level": levelString(logMessage->_flag),
 		}];
+
+    if (logMessage.tag) {
+        map[@"payload"] = logMessage.tag;
+    }
 	
 	[map addEntriesFromDictionary:self.permanentFields];
 	
