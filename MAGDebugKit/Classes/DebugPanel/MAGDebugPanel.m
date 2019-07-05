@@ -80,6 +80,7 @@
 
 	if (!self.hasCustomActions) {
 		[self addTitle:@"Custom actions"];
+		self.hasCustomActions = YES;
 	}
 	[self addButtonWithTitle:title action:action];
 }
