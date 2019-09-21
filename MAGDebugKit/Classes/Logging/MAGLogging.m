@@ -24,6 +24,17 @@
 
 @implementation MAGLogging
 
+- (instancetype)init {
+	self = [super init];
+	if (!self) {
+		return nil;
+	}
+
+	_logs = @[DDLog.sharedInstance];
+
+	return self;
+}
+
 + (instancetype)sharedInstance {
     static MAGLogging *sharedInstance = nil;
     static dispatch_once_t onceToken;
@@ -31,6 +42,15 @@
         sharedInstance = [[MAGLogging alloc] init];
     });
     return sharedInstance;
+}
+
+- (void)setLogs:(NSArray *)logs {
+	_logs = logs;
+
+	self.aslLoggingEnabled = self.aslLoggingEnabled;
+	self.ttyLoggingEnabled = self.ttyLoggingEnabled;
+	self.fileLoggingEnabled = self.fileLoggingEnabled;
+	self.remoteLoggingEnabled = self.remoteLoggingEnabled;
 }
 
 - (void)setLogLevel:(DDLogLevel)logLevel {
@@ -50,9 +70,13 @@
 	
 	if (self.ttyLoggingEnabled) {
 		self.ttyLogger = [DDTTYLogger sharedInstance];
-		[DDLog addLogger:self.ttyLogger];
+		for (DDLog *log in self.logs) {
+			[log addLogger:self.ttyLogger];
+		}
 	} else {
-		[DDLog removeLogger:self.ttyLogger];
+		for (DDLog *log in self.logs) {
+			[log removeLogger:self.ttyLogger];
+		}
 		self.ttyLogger = nil;
 	}
 }
@@ -66,9 +90,15 @@
 	
 	if (self.aslLoggingEnabled) {
 		self.aslLogger = [DDASLLogger sharedInstance];
-		[DDLog addLogger:self.aslLogger];
+		for (DDLog *log in self.logs) {
+			[log addLogger:self.aslLogger];
+		}
+
 	} else {
-		[DDLog removeLogger:self.aslLogger];
+		for (DDLog *log in self.logs) {
+			[log removeLogger:self.aslLogger];
+		}
+
 		self.aslLogger = nil;
 	}
 }
@@ -84,9 +114,15 @@
 		self.fileLogger = [[DDFileLogger alloc] init];
 		self.fileLogger.rollingFrequency = 60*60;
 		self.fileLogger.logFileManager.maximumNumberOfLogFiles = 48;
-		[DDLog addLogger:self.fileLogger];
+		for (DDLog *log in self.logs) {
+			[log addLogger:self.fileLogger];
+		}
+
 	} else {
-		[DDLog removeLogger:self.fileLogger];
+		for (DDLog *log in self.logs) {
+			[log removeLogger:self.fileLogger];
+		}
+
 		self.fileLogger = nil;
 	}
 }
@@ -132,7 +168,10 @@
 #pragma mark - Private methods
 
 - (void)refreshConnection {
-	[DDLog removeLogger:self.remoteLogger];
+	for (DDLog *log in self.logs) {
+		[log removeLogger:self.remoteLogger];
+	}
+
 	self.remoteLogger = nil;
 
 	if (self.remoteLoggingEnabled) {
@@ -149,12 +188,19 @@
 		NSString *appVersionString = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
 		NSString *fullVersionString = [NSString stringWithFormat:@"%@(%@)", appVersionString, appBuildString];
 		[formatter setPermanentLogValue:fullVersionString field:@"app_version"];
+        self.remoteLogger.logFormatter = formatter;
+        
 		[self updatePermanentLogValuesFromDictionary];
 		
 		self.remoteLogger.logFormatter = formatter;
-		[DDLog addLogger:self.remoteLogger];
+		for (DDLog *log in self.logs) {
+			[log addLogger:self.remoteLogger];
+		}
 	} else {
-		[DDLog removeLogger:self.remoteLogger];
+		for (DDLog *log in self.logs) {
+			[log removeLogger:self.remoteLogger];
+		}
+
 		self.remoteLogger.logFormatter = nil;
 		self.remoteLogFormatter = nil;
 		self.remoteLogger = nil;

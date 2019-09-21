@@ -26,4 +26,6 @@ typedef NS_ENUM(NSUInteger, MAGDebugPanelAppearanceStyle) {
 
 - (void)addAction:(void(^)(void))action withTitle:(NSString *)title;
 
+- (void)hideAnimated:(BOOL)animated;
+
 @end
