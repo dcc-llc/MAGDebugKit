@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MAGDebugKit'
-  s.version          = '0.8.1'
+  s.version          = '0.8.2'
   s.summary          = 'Developers Kit for convenient testing and QA.'
 
 # This description is used to generate tags and improve search results.
@@ -37,7 +37,7 @@ Pod::Spec.new do |s|
   #s.frameworks = 'UIKit'
 
   s.dependency 'libextobjc', '~> 0.4'
-  s.dependency 'CocoaLumberjack/Swift', '~> 3.4'
+  s.dependency 'CocoaLumberjack/Swift', '~> 3.5'
   s.dependency 'CocoaAsyncSocket', '~> 7.6'
 
 end
