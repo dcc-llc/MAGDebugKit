@@ -15,6 +15,7 @@ extern DDLogLevel magDebugKitLogLevel;
 
 + (instancetype)sharedInstance;
 
+@property (nonatomic) NSArray<DDLog *> *logs;
 @property (nonatomic) DDLogLevel logLevel;
 
 @property (nonatomic) BOOL fileLoggingEnabled;
