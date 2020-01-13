@@ -26,6 +26,6 @@ extern DDLogLevel magDebugKitLogLevel;
 @property (nonatomic) BOOL remoteLoggingEnabled;
 @property (nonatomic, copy) NSString *remoteLoggingHost;
 @property (nonatomic) NSNumber *remoteLoggingPort;
-@property (nonatomic, copy) NSDictionary *remoteLoggingDictionary;
+@property (atomic, copy) NSDictionary *remoteLoggingDictionary;
 
 @end
