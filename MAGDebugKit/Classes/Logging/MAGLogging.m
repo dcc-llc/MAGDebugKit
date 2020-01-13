@@ -10,7 +10,9 @@
 #endif
 
 
-@interface MAGLogging ()
+@interface MAGLogging () {
+	NSDictionary *_remoteLoggingDictionary;
+}
 
 @property (nonatomic) DDFileLogger *fileLogger;
 @property (nonatomic) DDTTYLogger *ttyLogger;
@@ -18,7 +20,7 @@
 
 @property (nonatomic) MAGRemoteLogger *remoteLogger;
 @property (nonatomic) MAGJSONLogFormatter *remoteLogFormatter;
-
+@property (atomic) dispatch_queue_t accessQueue;
 @end
 
 
@@ -31,6 +33,11 @@
 	}
 
 	_logs = @[DDLog.sharedInstance];
+
+	_remoteLoggingDictionary = @{};
+	_accessQueue = dispatch_queue_create(
+		"MAGDebugKit.MAGLogging.PermanentValuesAccessQueue",
+		DISPATCH_QUEUE_CONCURRENT);
 
 	return self;
 }
@@ -151,16 +158,26 @@
 	[self refreshConnection];
 }
 
+- (NSDictionary *)remoteLoggingDictionary {
+	__block NSDictionary *result;
+	dispatch_sync(self.accessQueue, ^{
+		result = _remoteLoggingDictionary;
+	});
+	return result;
+}
+
 - (void)setRemoteLoggingDictionary:(NSDictionary *)dict {
-	_remoteLoggingDictionary = dict;
-	[self updatePermanentLogValuesFromDictionary];
+	dispatch_barrier_async(self.accessQueue, ^{
+		self->_remoteLoggingDictionary = dict;
+		[self updatePermanentLogValuesFromDictionary];
+	});
 }
 
 - (void)updatePermanentLogValuesFromDictionary {
 	if (self.remoteLogger && self.remoteLogger.logFormatter) {
-		for (NSString *key in self.remoteLoggingDictionary) {
+		for (NSString *key in _remoteLoggingDictionary) {
 			[self.remoteLogFormatter
-				setPermanentLogValue:self.remoteLoggingDictionary[key] field:key];
+				setPermanentLogValue:_remoteLoggingDictionary[key] field:key];
 		}
 	}
 }

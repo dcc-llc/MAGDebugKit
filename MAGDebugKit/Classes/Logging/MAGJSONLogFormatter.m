@@ -1,9 +1,10 @@
 #import "MAGJSONLogFormatter.h"
 
 
-@interface MAGJSONLogFormatter ()
-
-@property (nonatomic) NSMutableDictionary <NSString *, id> *permanentFields;
+@interface MAGJSONLogFormatter () {
+	NSMutableDictionary <NSString *, id> *_permanentFields;
+}
+@property (atomic) dispatch_queue_t accessQueue;
 
 @end
 
@@ -15,9 +16,12 @@
 	if (!self) {
 		return nil;
 	}
-	
+
 	_permanentFields = [[NSMutableDictionary alloc] init];
-	
+	_accessQueue = dispatch_queue_create(
+		"MAGDebugKit.MAGJSONLogFormatter.PermanentValuesAccessQueue",
+		DISPATCH_QUEUE_CONCURRENT);
+
 	return self;
 }
 
@@ -34,9 +38,11 @@
     if (logMessage.tag) {
         map[@"payload"] = logMessage.tag;
     }
-	
-	[map addEntriesFromDictionary:self.permanentFields];
-	
+
+	dispatch_sync(self.accessQueue, ^{
+		[map addEntriesFromDictionary:_permanentFields];
+	});
+
 	NSData *data = [NSJSONSerialization dataWithJSONObject:map options:0 error:nil];
 	NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 	string = [string stringByAppendingString:@"\n"];
@@ -45,7 +51,9 @@
 }
 
 - (void)setPermanentLogValue:(id)value field:(NSString *)field {
-	self.permanentFields[field] = value;
+	dispatch_barrier_async(self.accessQueue, ^{
+		self->_permanentFields[field] = value;
+	});
 }
 
 
