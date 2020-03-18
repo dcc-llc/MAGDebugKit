@@ -1,14 +1,14 @@
 #import "MAGPanelPickerCell.h"
 #import "MAGPanelGeometry.h"
 #import "UIView+Constraints.h"
+#import "MAGRestrictedTextField.h"
 
 
 @interface MAGPanelPickerCell ()
 
-@property (nonatomic) UIButton *button;
 @property (nonatomic) UILabel *titleLabel;
 @property (nonatomic) UILabel *valueLabel;
-@property (nonatomic) UITextField *textField;
+@property (nonatomic) MAGRestrictedTextField *textField;
 @property (nonatomic) UIPickerView *pickerView;
 
 @property (nonatomic) UIView *inputAccessoryView;
@@ -47,14 +47,6 @@
 
     self.backgroundColor = [UIColor magPanelCellBackground];
 
-    self.button = [UIButton buttonWithType:UIButtonTypeSystem];
-    self.button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-    self.button.contentEdgeInsets = magPanelCellEdgeInsets;
-    [self.button setTitle:nil forState:UIControlStateNormal];
-    [self.button addTarget:self action:@selector(buttonTap:) forControlEvents:UIControlEventTouchUpInside];
-
-    [self addSubviewWithConstrainsAround:self.button];
-
     self.titleLabel = [[UILabel alloc] init];
     self.titleLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
     self.titleLabel.textColor = [UIColor magPanelCellText];
@@ -77,9 +69,9 @@
     [[self.valueLabel.trailingAnchor constraintEqualToAnchor:self.trailingAnchor constant:-magPanelCellEdgeInsets.right] setActive:YES];
     [[self.valueLabel.firstBaselineAnchor constraintEqualToAnchor:self.titleLabel.firstBaselineAnchor] setActive:YES];
 
-    self.textField = [[UITextField alloc] init];
+    self.textField = [[MAGRestrictedTextField alloc] init];
     self.textField.frame = CGRectZero;
-    [self addSubview:self.textField];
+    [self addSubviewWithConstrainsAround:self.textField];
 
     self.pickerView = [[UIPickerView alloc] init];
     self.inputView = self.pickerView;
@@ -121,16 +113,6 @@
 - (void)setInputAccessoryView:(UIView *)inputAccessoryView {
 	_inputAccessoryView = inputAccessoryView;
     self.textField.inputAccessoryView = inputAccessoryView;
-}
-
-#pragma mark - UI actions
-
-- (void)buttonTap:(UIButton *)sender {
-	if (self.textField.isFirstResponder) {
-		[self.textField resignFirstResponder];
-	} else {
-		[self.textField becomeFirstResponder];
-	}
 }
 
 #pragma mark - UITextFieldDelegate
