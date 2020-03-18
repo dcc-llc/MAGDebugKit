@@ -47,8 +47,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	self.title = @"Settings";
-	
-	[self setupMenuActions];
 }
 
 #pragma mark - Public methods
@@ -83,6 +81,36 @@
 		self.hasCustomActions = YES;
 	}
 	[self addButtonWithTitle:title action:action];
+}
+
+- (void)addDefaultAction:(MAGDebugPanelDefaultAction)action {
+	[self loadViewIfNeeded];
+
+	@weakify(self);
+	switch (action) {
+		case MAGDebugPanelDefaultActionLogging: {
+			[self addTitle:@"Logging"];
+
+			[self addButtonWithTitle:@"Logging" action:^{
+					@strongify(self);
+					[self loggingAction];
+				}];
+			break;
+		}
+
+		case MAGDebugPanelDefaultActionSandbox: {
+			[self addTitle:@"Sandbox"];
+
+			[self addButtonWithTitle:@"Disk browser" action:^{
+					@strongify(self);
+					[self sandboxBrowserAction];
+				}];
+			break;
+		}
+
+		default:
+			break;
+	}
 }
 
 #pragma mark - UI actions
@@ -175,24 +203,6 @@
 		initWithBarButtonSystemItem:UIBarButtonSystemItemDone
 		target:self action:@selector(closeButtonTap:)];
 	self.navigationItem.leftBarButtonItem = closeButton;
-}
-
-- (void)setupMenuActions {
-	@weakify(self);
-	
-	[self addTitle:@"Logging"];
-	
-	[self addButtonWithTitle:@"Logging" action:^{
-			@strongify(self);
-			[self loggingAction];
-		}];
-	
-	[self addTitle:@"Sandbox"];
-
-	[self addButtonWithTitle:@"Disk browser" action:^{
-			@strongify(self);
-			[self sandboxBrowserAction];
-		}];
 }
 
 #pragma mark - UI actions

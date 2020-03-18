@@ -8,6 +8,12 @@ typedef NS_ENUM(NSUInteger, MAGDebugPanelAppearanceStyle) {
 };
 
 
+typedef NS_ENUM(NSUInteger, MAGDebugPanelDefaultAction) {
+    MAGDebugPanelDefaultActionLogging = 0,
+    MAGDebugPanelDefaultActionSandbox,
+};
+
+
 @interface MAGDebugPanel : MAGSettingsPanelVC
 
 @property (nonatomic, readonly) MAGDebugPanelAppearanceStyle appearanceStyle;
@@ -24,6 +30,7 @@ typedef NS_ENUM(NSUInteger, MAGDebugPanelAppearanceStyle) {
 - (void)integrateAboveWindow:(UIWindow *)appWindow;
 - (void)desintegrate;
 
+- (void)addDefaultAction:(MAGDebugPanelDefaultAction)action;
 - (void)addAction:(void(^)(void))action withTitle:(NSString *)title;
 
 - (void)hideAnimated:(BOOL)animated;
