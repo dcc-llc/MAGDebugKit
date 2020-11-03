@@ -84,10 +84,17 @@ DDLogMessage *mag_decodedLogMessage(NSDictionary *encoded) {
 	return self;
 }
 
+- (void)dealloc {
+	self.socket.delegate = nil;
+	[self.socket disconnect];
+}
+
 #pragma mark - Public methods
 
 - (void)logMessage:(DDLogMessage *)logMessage {
+	@weakify(self);
 	dispatch_async(self.loggingQueue, ^{
+		@strongify(self);
 		[self.logsToShip addObject:logMessage];
 		[self saveDiskQueue];
 		[self shipFromQueue];
@@ -154,8 +161,10 @@ DDLogMessage *mag_decodedLogMessage(NSDictionary *encoded) {
 		self.disconnectionBlock = nil;
 	}
 
-	self.disconnectionBlock = dispatch_block_create(DISPATCH_BLOCK_INHERIT_QOS_CLASS,
-		^{
+	@weakify(self);
+	self.disconnectionBlock = dispatch_block_create(DISPATCH_BLOCK_INHERIT_QOS_CLASS, ^{
+			@strongify(self);
+
 			if (self.socket.isDisconnected) {
 				return;
 			}
@@ -190,8 +199,10 @@ DDLogMessage *mag_decodedLogMessage(NSDictionary *encoded) {
 
 - (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(nullable NSError *)err {
 	if (err) {
+		@weakify(self);
 		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(retryInterval * NSEC_PER_SEC)),
 			self.loggingQueue, ^{
+				@strongify(self);
 				[self shipFromQueue];
 			});
 	}
