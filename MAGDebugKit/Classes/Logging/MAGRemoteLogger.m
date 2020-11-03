@@ -79,8 +79,13 @@ DDLogMessage *mag_decodedLogMessage(NSDictionary *encoded) {
 	NSString *fileName = [fileIdData base64EncodedStringWithOptions:0];
 	NSString *path = [cachesDir stringByAppendingPathComponent:fileName];
 	_diskQueue = [NSURL fileURLWithPath:path];
-	[self loadDiskQueue];
-	
+
+	@weakify(self);
+	dispatch_sync(_loggingQueue, ^{
+		@strongify(self);
+		[self loadDiskQueue];
+	});
+
 	return self;
 }
 
