@@ -185,13 +185,24 @@
 #pragma mark - Private methods
 
 - (void)refreshConnection {
-	for (DDLog *log in self.logs) {
-		[log removeLogger:self.remoteLogger];
+	BOOL loggerIsUp = self.remoteLogger != nil;
+	BOOL settingsExist = self.remoteLoggingHost != nil && self.remoteLoggingPort != nil;
+	BOOL sameHost = [self.remoteLogger.host isEqualToString:self.remoteLoggingHost];
+	BOOL samePort = self.remoteLogger.port == self.remoteLoggingPort.unsignedIntegerValue;
+	if (self.remoteLoggingEnabled && loggerIsUp && settingsExist && sameHost && samePort) {
+		return;
 	}
 
-	self.remoteLogger = nil;
+	if (loggerIsUp) {
+		for (DDLog *log in self.logs) {
+			[log removeLogger:self.remoteLogger];
+		}
+		self.remoteLogger.logFormatter = nil;
+		self.remoteLogFormatter = nil;
+		self.remoteLogger = nil;
+	}
 
-	if (self.remoteLoggingEnabled) {
+	if (self.remoteLoggingEnabled && settingsExist) {
 		self.remoteLogger = [[MAGRemoteLogger alloc] initWithHost:self.remoteLoggingHost port:self.remoteLoggingPort.unsignedIntegerValue];
 		self.remoteLogFormatter = [[MAGJSONLogFormatter alloc] init];
 		MAGJSONLogFormatter *formatter = self.remoteLogFormatter;
@@ -213,14 +224,6 @@
 		for (DDLog *log in self.logs) {
 			[log addLogger:self.remoteLogger];
 		}
-	} else {
-		for (DDLog *log in self.logs) {
-			[log removeLogger:self.remoteLogger];
-		}
-
-		self.remoteLogger.logFormatter = nil;
-		self.remoteLogFormatter = nil;
-		self.remoteLogger = nil;
 	}
 }
 
