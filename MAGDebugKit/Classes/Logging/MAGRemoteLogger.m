@@ -199,10 +199,13 @@ DDLogMessage *mag_decodedLogMessage(NSDictionary *encoded) {
 	}
 	
 	self.shippingLog = self.logsToShip.firstObject;
-	
+
+	// NOTE: .isConnected and .isDisconnected are not just the same inversed property.
+	// While client is in process of establishing the connection, both flags are off.
+	// We must handle this situation to avoid duplicate simoultanious attempts to connect.
 	if (self.socket.isConnected) {
 		[self writeShippingLogToSocket];
-	} else {
+	} else if (self.socket.isDisconnected) {
 		NSError *__autoreleasing error = nil;
 		[self.socket connectToHost:self.host onPort:self.port error:&error];
 		
