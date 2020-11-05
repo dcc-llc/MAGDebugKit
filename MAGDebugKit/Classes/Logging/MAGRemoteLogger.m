@@ -50,9 +50,12 @@ DDLogMessage *mag_decodedLogMessage(NSDictionary *encoded) {
 @property (atomic) dispatch_queue_t loggingQueue;
 @property (nonatomic) NSURL *diskQueue;
 @property (nonatomic) dispatch_block_t disconnectionBlock;
+@property (nonatomic) dispatch_block_t reconnectionBlock;
 
 @property (nonatomic) DDLogMessage *shippingLog;
-
+@property (nonatomic) id<NSObject> appTerminateSubscription;
+@property (nonatomic) id<NSObject> appBackgroundSubscription;
+@property (nonatomic) id<NSObject> appForegroundSubscription;
 @end
 
 
@@ -86,10 +89,16 @@ DDLogMessage *mag_decodedLogMessage(NSDictionary *encoded) {
 		[self loadDiskQueue];
 	});
 
+	[self setupAppLifecycleHandlers];
+
 	return self;
 }
 
 - (void)dealloc {
+	[NSNotificationCenter.defaultCenter removeObserver:self.appTerminateSubscription];
+	[NSNotificationCenter.defaultCenter removeObserver:self.appBackgroundSubscription];
+	[NSNotificationCenter.defaultCenter removeObserver:self.appForegroundSubscription];
+
 	self.socket.delegate = nil;
 	[self.socket disconnect];
 }
@@ -107,6 +116,52 @@ DDLogMessage *mag_decodedLogMessage(NSDictionary *encoded) {
 }
 
 #pragma mark - Private methods
+
+- (void)setupAppLifecycleHandlers {
+	@weakify(self);
+	void (^activeHandler)(id) = ^void(id _) {
+		@strongify(self);
+		[self appDidBecomeActive];
+	};
+
+	void (^inactiveHandler)(id) = ^void(id _) {
+		@strongify(self);
+		[self appDidBecomeInactive];
+	};
+
+	self.appTerminateSubscription = [NSNotificationCenter.defaultCenter
+		addObserverForName:UIApplicationWillTerminateNotification
+		object:nil queue:nil usingBlock:inactiveHandler];
+
+	self.appBackgroundSubscription = [NSNotificationCenter.defaultCenter
+		addObserverForName:UIApplicationDidEnterBackgroundNotification
+		object:nil queue:nil usingBlock:inactiveHandler];
+
+	self.appForegroundSubscription = [NSNotificationCenter.defaultCenter
+		addObserverForName:UIApplicationWillEnterForegroundNotification
+		object:nil queue:nil usingBlock:activeHandler];
+}
+
+- (void)appDidBecomeActive {
+	if (self.socket.isConnected) {
+		return;
+	}
+	if (self.logsToShip.count == 0) {
+		return;
+	}
+
+	[self shipFromQueue];
+}
+
+- (void)appDidBecomeInactive {
+	[self unscheduleDisconnect];
+	[self unscheduleReconnect];
+
+	if (self.socket.isConnected) {
+		self.shippingLog = nil;
+		[self.socket disconnect];
+	}
+}
 
 - (void)loadDiskQueue {
 	NSArray *diskQueue = [[NSArray alloc] initWithContentsOfURL:self.diskQueue];
@@ -131,20 +186,26 @@ DDLogMessage *mag_decodedLogMessage(NSDictionary *encoded) {
 }
 
 - (void)shipFromQueue {
-	if (self.logsToShip.count == 0) {
+	if (self.logsToShip.count == 0 && self.socket.isConnected) {
 		[self scheduleDisconnect];
 		return;
 	}
-	
+
+	[self unscheduleDisconnect];
+	[self unscheduleReconnect];
+
 	if (self.shippingLog) {
 		return;
 	}
 	
 	self.shippingLog = self.logsToShip.firstObject;
-	
+
+	// NOTE: .isConnected and .isDisconnected are not just the same inversed property.
+	// While client is in process of establishing the connection, both flags are off.
+	// We must handle this situation to avoid duplicate simoultanious attempts to connect.
 	if (self.socket.isConnected) {
 		[self writeShippingLogToSocket];
-	} else {
+	} else if (self.socket.isDisconnected) {
 		NSError *__autoreleasing error = nil;
 		[self.socket connectToHost:self.host onPort:self.port error:&error];
 		
@@ -155,16 +216,18 @@ DDLogMessage *mag_decodedLogMessage(NSDictionary *encoded) {
 }
 
 - (void)writeShippingLogToSocket {
+	if (self.shippingLog == nil) {
+		[self scheduleDisconnect];
+		return;
+	}
+
 	NSString *string = [self.logFormatter formatLogMessage:self.shippingLog];
 	NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
 	[self.socket writeData:data withTimeout:10 tag:0];
 }
 
 - (void)scheduleDisconnect {
-	if (self.disconnectionBlock) {
-		dispatch_block_cancel(self.disconnectionBlock);
-		self.disconnectionBlock = nil;
-	}
+	[self unscheduleDisconnect];
 
 	@weakify(self);
 	self.disconnectionBlock = dispatch_block_create(DISPATCH_BLOCK_INHERIT_QOS_CLASS, ^{
@@ -187,6 +250,37 @@ DDLogMessage *mag_decodedLogMessage(NSDictionary *encoded) {
 		dispatch_get_main_queue(), self.disconnectionBlock);
 }
 
+- (void)unscheduleDisconnect {
+	if (self.disconnectionBlock) {
+		dispatch_block_cancel(self.disconnectionBlock);
+		self.disconnectionBlock = nil;
+	}
+}
+
+- (void)scheduleReconnect {
+	[self unscheduleReconnect];
+
+	@weakify(self);
+	self.reconnectionBlock = dispatch_block_create(DISPATCH_BLOCK_INHERIT_QOS_CLASS, ^{
+			@strongify(self);
+			if (self.socket.isConnected) {
+				return;
+			}
+			[self shipFromQueue];
+		}
+	);
+
+	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(retryInterval * NSEC_PER_SEC)),
+		self.loggingQueue, self.reconnectionBlock);
+}
+
+- (void)unscheduleReconnect {
+	if (self.reconnectionBlock) {
+		dispatch_block_cancel(self.reconnectionBlock);
+		self.reconnectionBlock = nil;
+	}
+}
+
 #pragma mark - Socket delegate
 
 - (void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port {
@@ -203,13 +297,10 @@ DDLogMessage *mag_decodedLogMessage(NSDictionary *encoded) {
 }
 
 - (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(nullable NSError *)err {
+	self.shippingLog = nil;
+
 	if (err) {
-		@weakify(self);
-		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(retryInterval * NSEC_PER_SEC)),
-			self.loggingQueue, ^{
-				@strongify(self);
-				[self shipFromQueue];
-			});
+		[self scheduleReconnect];
 	}
 }
 
