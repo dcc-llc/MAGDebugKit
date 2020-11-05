@@ -158,6 +158,7 @@ DDLogMessage *mag_decodedLogMessage(NSDictionary *encoded) {
 	[self unscheduleReconnect];
 
 	if (self.socket.isConnected) {
+		self.shippingLog = nil;
 		[self.socket disconnect];
 	}
 }
@@ -293,6 +294,8 @@ DDLogMessage *mag_decodedLogMessage(NSDictionary *encoded) {
 }
 
 - (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(nullable NSError *)err {
+	self.shippingLog = nil;
+
 	if (err) {
 		[self scheduleReconnect];
 	}
