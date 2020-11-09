@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MAGDebugKit'
-  s.version          = '0.8.7'
+  s.version          = '0.9.0'
   s.summary          = 'Developers Kit for convenient testing and QA.'
 
 # This description is used to generate tags and improve search results.
@@ -18,13 +18,10 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = 'Developers Kit for convenient iOS App testing and QA.'
-
   s.homepage         = 'https://github.com/dcc-llc/MAGDebugKit'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'Apache License, Version 2.0', :file => 'LICENSE' }
   s.author           = { 'Evgeniy Stepanov' => 'stepanov@magora.systems' }
   s.source           = { :git => 'https://github.com/dcc-llc/MAGDebugKit.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '10.0'
 
@@ -33,11 +30,6 @@ Pod::Spec.new do |s|
     'MAGDebugKit' => ['MAGDebugKit/Assets/*.xib']
   }
 
-  #s.public_header_files = 'Pod/Classes/**/*.h'
-  #s.frameworks = 'UIKit'
-
   s.dependency 'libextobjc', '~> 0.4'
-  s.dependency 'CocoaLumberjack/Swift', '~> 3.5'
-  s.dependency 'CocoaAsyncSocket', '~> 7.6'
 
 end
