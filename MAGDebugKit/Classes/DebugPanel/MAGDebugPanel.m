@@ -1,11 +1,7 @@
 #import "MAGDebugPanel.h"
-#import "MAGLoggingSettingsVC.h"
 #import "MAGSandboxBrowserVC.h"
 #import "MAGUDSettingsStorage.h"
-
 #import "MAGDebugPanelSettingsKeys.h"
-#import "MAGLogging.h"
-#import "MAGLoggingSettingsVC.h"
 #import <libextobjc/extobjc.h>
 
 
@@ -88,16 +84,6 @@
 
 	@weakify(self);
 	switch (action) {
-		case MAGDebugPanelDefaultActionLogging: {
-			[self addTitle:@"Logging"];
-
-			[self addButtonWithTitle:@"Logging" action:^{
-					@strongify(self);
-					[self loggingAction];
-				}];
-			break;
-		}
-
 		case MAGDebugPanelDefaultActionSandbox: {
 			[self addTitle:@"Sandbox"];
 
@@ -207,11 +193,6 @@
 
 #pragma mark - UI actions
 
-- (void)loggingAction {
-	MAGLoggingSettingsVC *vc = [[MAGLoggingSettingsVC alloc] initWithSettings:self.settingsReactor];
-	[self.navigationController pushViewController:vc animated:YES];
-}
-
 - (void)sandboxBrowserAction {
 	MAGSandboxBrowserVC *vc = [[MAGSandboxBrowserVC alloc] initWithURL:nil];
 	[self.navigationController pushViewController:vc animated:YES];
@@ -220,35 +201,6 @@
 #pragma mark - Private methods
 
 + (void)configureReactionsFor:(id<MAGSettingsReactor>) settings {
-	// Logging.
-	[settings setReaction:^(NSNumber *value) {
-			MAGLoggingLevel level = [value unsignedIntegerValue];
-			[[MAGLogging sharedInstance] setLogLevel:ddLogLevelForLoggingLevel(level)];
-		} forKey:MAGDebugPanelSettingKeyLoggingVerbosity defaultValue:@(MAGLoggingLevelAll)];
-	
-	[settings setReaction:^(NSNumber *value) {
-			[[MAGLogging sharedInstance] setFileLoggingEnabled:value.boolValue];
-		} forKey:MAGDebugPanelSettingKeyFileLoggingEnabled defaultValue:@NO];
-	
-	[settings setReaction:^(NSNumber *value) {
-			[[MAGLogging sharedInstance] setTtyLoggingEnabled:value.boolValue];
-		} forKey:MAGDebugPanelSettingKeyTTYLoggingEnabled defaultValue:@NO];
-
-	[settings setReaction:^(NSNumber *value) {
-			[[MAGLogging sharedInstance] setAslLoggingEnabled:value.boolValue];
-		} forKey:MAGDebugPanelSettingKeyASLLoggingEnabled defaultValue:@NO];
-
-	[settings setReaction:^(NSString *value) {
-			[MAGLogging sharedInstance].remoteLoggingHost = value;
-		} forKey:MAGDebugPanelSettingKeyAntennaLoggingHost defaultValue:nil];
-
-	[settings setReaction:^(NSString *value) {
-			[MAGLogging sharedInstance].remoteLoggingPort = @(value.integerValue);
-		} forKey:MAGDebugPanelSettingKeyAntennaLoggingPort defaultValue:nil];
-
-	[settings setReaction:^(NSNumber *value) {
-			[MAGLogging sharedInstance].remoteLoggingEnabled = value.boolValue;
-		} forKey:MAGDebugPanelSettingKeyAntennaLoggingEnabled defaultValue:@NO];
 }
 
 @end

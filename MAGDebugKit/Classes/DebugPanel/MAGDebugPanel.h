@@ -9,8 +9,7 @@ typedef NS_ENUM(NSUInteger, MAGDebugPanelAppearanceStyle) {
 
 
 typedef NS_ENUM(NSUInteger, MAGDebugPanelDefaultAction) {
-    MAGDebugPanelDefaultActionLogging = 0,
-    MAGDebugPanelDefaultActionSandbox,
+	MAGDebugPanelDefaultActionSandbox = 0,
 };
 
 
