@@ -62,9 +62,13 @@ static NSString *const sandboxBrowserCellId = @"sandboxBrowserCellId";
 
 - (void)reloadItems {
 	NSError *__autoreleasing error = nil;
-	self.items = [self.fm contentsOfDirectoryAtURL:self.url includingPropertiesForKeys:@[]
+	NSArray <NSURL *> *items = [self.fm contentsOfDirectoryAtURL:self.url includingPropertiesForKeys:@[]
 		options:0 error:&error];
-	
+
+	self.items = [items sortedArrayUsingComparator:^NSComparisonResult(NSURL*  _Nonnull obj1, NSURL*  _Nonnull obj2) {
+		return [obj1.lastPathComponent compare:obj2.lastPathComponent];
+	}];
+
 	if (!self.items) {
 		NSLog(@"Error while getting directory contents: %@", error);
 	}
