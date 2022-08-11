@@ -7,7 +7,7 @@
 @property (nonatomic) NSString *value;
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) void(^action)(NSString *value);
-@property (nonatomic, copy) void(^returnKeyAction)();
+@property (nonatomic, copy) void(^returnKeyAction)(void);
 
 @property (nonatomic, readonly) UITextField *input;
 
