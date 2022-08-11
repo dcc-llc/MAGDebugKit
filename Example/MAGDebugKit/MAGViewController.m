@@ -1,11 +1,12 @@
 #import "MAGViewController.h"
 #import <CocoaLumberjack/CocoaLumberjack.h>
-#import <MAGDebugKit/MAGLogging.h>
+//#import <MAGDebugKit/MAGLogging.h>
 
 
 @interface MAGViewController () <UITextFieldDelegate>
 @end
 
+#define ddLogLevel DDLogLevelVerbose
 
 @implementation MAGViewController
 

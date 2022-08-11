@@ -3,6 +3,8 @@ use_frameworks!
 target 'MAGDebugKit_Example' do
 
   pod 'MAGDebugKit', :path => '../'
+  pod 'CocoaAsyncSocket', '~> 7.6'
+  pod 'CocoaLumberjack', '~> 3.5'
 
   target 'MAGDebugKit_Tests' do
     inherit! :search_paths
