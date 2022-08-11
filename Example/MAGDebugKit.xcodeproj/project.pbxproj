@@ -61,7 +61,7 @@
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		67464D7EF12ACAB5BEFAC954 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		736790741DC7304F0022E039 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		79DC1AD08C96C125A6CFDC03 /* MAGDebugKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = MAGDebugKit.podspec; path = ../MAGDebugKit.podspec; sourceTree = "<group>"; };
+		79DC1AD08C96C125A6CFDC03 /* MAGDebugKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = MAGDebugKit.podspec; path = ../MAGDebugKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		AC60E726ED560A127207A935 /* Pods-MAGDebugKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MAGDebugKit_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MAGDebugKit_Example/Pods-MAGDebugKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		E5A3A2AFFDA2223391AB472C /* Pods-MAGDebugKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MAGDebugKit_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-MAGDebugKit_Example/Pods-MAGDebugKit_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -260,6 +260,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
