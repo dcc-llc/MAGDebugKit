@@ -38,12 +38,12 @@ PODS:
     - libextobjc/RuntimeExtensions
   - libextobjc/RuntimeExtensions (0.6)
   - libextobjc/UmbrellaHeader (0.6)
-  - MAGDebugKit (0.9.0):
-    - libextobjc (~> 0.4)
+  - MAGDebugKit (0.9.0)
 
 DEPENDENCIES:
   - CocoaAsyncSocket (~> 7.6)
   - CocoaLumberjack (~> 3.5)
+  - libextobjc (~> 0.4)
   - MAGDebugKit (from `../`)
 
 SPEC REPOS:
@@ -61,8 +61,8 @@ SPEC CHECKSUMS:
   CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
   CocoaLumberjack: 2101f8a5508197a305e737d16c5c2e9e2157628c
   libextobjc: aed8b7d2b07f511c1a7ecaacb33ea03e327c69b7
-  MAGDebugKit: d7855ccaa5c7e5b99eb8018a07076a65150db1f6
+  MAGDebugKit: c800a5f06875bc81759fa08cba54621c2c748159
 
-PODFILE CHECKSUM: 48324dc5cf05efa3fb96d586b17f3866fed0e7b4
+PODFILE CHECKSUM: ab4de5b4b85b3f534531fd8e8b199e42b9a01877
 
 COCOAPODS: 1.11.3

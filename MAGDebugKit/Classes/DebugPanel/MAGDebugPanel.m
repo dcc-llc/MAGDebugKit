@@ -2,7 +2,7 @@
 #import "MAGSandboxBrowserVC.h"
 #import "MAGUDSettingsStorage.h"
 #import "MAGDebugPanelSettingsKeys.h"
-#import <libextobjc/extobjc.h>
+#import "MAGMacros.h"
 
 
 @interface MAGDebugPanel ()

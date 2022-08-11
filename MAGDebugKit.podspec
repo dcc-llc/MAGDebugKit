@@ -30,6 +30,4 @@ Pod::Spec.new do |s|
     'MAGDebugKit' => ['MAGDebugKit/Assets/*.xib']
   }
 
-  s.dependency 'libextobjc', '~> 0.4'
-
 end
