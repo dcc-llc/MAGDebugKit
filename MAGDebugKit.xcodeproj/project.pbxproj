@@ -10,42 +10,42 @@
 		3AE849D828A4FDE4004F57C7 /* MAGSwizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE849A928A4FDE4004F57C7 /* MAGSwizzling.m */; };
 		3AE849D928A4FDE4004F57C7 /* MAGSwizzling.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE849AA28A4FDE4004F57C7 /* MAGSwizzling.h */; };
 		3AE849DB28A4FDE4004F57C7 /* MAGDebugPanelRespondersManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE849AD28A4FDE4004F57C7 /* MAGDebugPanelRespondersManager.m */; };
-		3AE849DC28A4FDE4004F57C7 /* MAGUDSettingsStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE849AE28A4FDE4004F57C7 /* MAGUDSettingsStorage.h */; };
-		3AE849DD28A4FDE4004F57C7 /* MAGPanelInputCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE849B028A4FDE4004F57C7 /* MAGPanelInputCell.h */; };
-		3AE849DE28A4FDE4004F57C7 /* MAGPanelTitleCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE849B128A4FDE4004F57C7 /* MAGPanelTitleCell.h */; };
-		3AE849DF28A4FDE4004F57C7 /* MAGPanelSeparator.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE849B228A4FDE4004F57C7 /* MAGPanelSeparator.h */; };
+		3AE849DC28A4FDE4004F57C7 /* MAGUDSettingsStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE849AE28A4FDE4004F57C7 /* MAGUDSettingsStorage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3AE849DD28A4FDE4004F57C7 /* MAGPanelInputCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE849B028A4FDE4004F57C7 /* MAGPanelInputCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3AE849DE28A4FDE4004F57C7 /* MAGPanelTitleCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE849B128A4FDE4004F57C7 /* MAGPanelTitleCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3AE849DF28A4FDE4004F57C7 /* MAGPanelSeparator.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE849B228A4FDE4004F57C7 /* MAGPanelSeparator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3AE849E028A4FDE4004F57C7 /* MAGPanelPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE849B328A4FDE4004F57C7 /* MAGPanelPickerCell.m */; };
-		3AE849E128A4FDE4004F57C7 /* MAGPanelCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE849B428A4FDE4004F57C7 /* MAGPanelCell.h */; };
-		3AE849E228A4FDE4004F57C7 /* MAGPanelToggleCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE849B528A4FDE4004F57C7 /* MAGPanelToggleCell.h */; };
-		3AE849E328A4FDE4004F57C7 /* MAGPanelButtonCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE849B628A4FDE4004F57C7 /* MAGPanelButtonCell.h */; };
+		3AE849E128A4FDE4004F57C7 /* MAGPanelCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE849B428A4FDE4004F57C7 /* MAGPanelCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3AE849E228A4FDE4004F57C7 /* MAGPanelToggleCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE849B528A4FDE4004F57C7 /* MAGPanelToggleCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3AE849E328A4FDE4004F57C7 /* MAGPanelButtonCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE849B628A4FDE4004F57C7 /* MAGPanelButtonCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3AE849E428A4FDE4004F57C7 /* MAGPanelPickerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE849B728A4FDE4004F57C7 /* MAGPanelPickerManager.m */; };
 		3AE849E528A4FDE4004F57C7 /* MAGPanelGeometry.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE849B828A4FDE4004F57C7 /* MAGPanelGeometry.h */; };
-		3AE849E628A4FDE4004F57C7 /* MAGRestrictedTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE849B928A4FDE4004F57C7 /* MAGRestrictedTextField.h */; };
+		3AE849E628A4FDE4004F57C7 /* MAGRestrictedTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE849B928A4FDE4004F57C7 /* MAGRestrictedTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3AE849E728A4FDE4004F57C7 /* MAGPanelSeparator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE849BA28A4FDE4004F57C7 /* MAGPanelSeparator.m */; };
 		3AE849E828A4FDE4004F57C7 /* MAGPanelTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE849BB28A4FDE4004F57C7 /* MAGPanelTitleCell.m */; };
 		3AE849E928A4FDE4004F57C7 /* MAGPanelInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE849BC28A4FDE4004F57C7 /* MAGPanelInputCell.m */; };
 		3AE849EA28A4FDE4004F57C7 /* MAGPanelToggleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE849BD28A4FDE4004F57C7 /* MAGPanelToggleCell.m */; };
-		3AE849EB28A4FDE4004F57C7 /* MAGPanelPickerCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE849BE28A4FDE4004F57C7 /* MAGPanelPickerCell.h */; };
-		3AE849EC28A4FDE4004F57C7 /* MAGPanelPickerManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE849BF28A4FDE4004F57C7 /* MAGPanelPickerManager.h */; };
+		3AE849EB28A4FDE4004F57C7 /* MAGPanelPickerCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE849BE28A4FDE4004F57C7 /* MAGPanelPickerCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3AE849EC28A4FDE4004F57C7 /* MAGPanelPickerManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE849BF28A4FDE4004F57C7 /* MAGPanelPickerManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3AE849ED28A4FDE4004F57C7 /* MAGPanelButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE849C028A4FDE4004F57C7 /* MAGPanelButtonCell.m */; };
 		3AE849EE28A4FDE4004F57C7 /* MAGRestrictedTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE849C128A4FDE4004F57C7 /* MAGRestrictedTextField.m */; };
 		3AE849EF28A4FDE4004F57C7 /* MAGPanelGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE849C228A4FDE4004F57C7 /* MAGPanelGeometry.m */; };
 		3AE849F028A4FDE4004F57C7 /* MAGDebugPanelSettingsKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE849C328A4FDE4004F57C7 /* MAGDebugPanelSettingsKeys.m */; };
-		3AE849F128A4FDE4004F57C7 /* MAGSettingsReactor.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE849C428A4FDE4004F57C7 /* MAGSettingsReactor.h */; };
+		3AE849F128A4FDE4004F57C7 /* MAGSettingsReactor.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE849C428A4FDE4004F57C7 /* MAGSettingsReactor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3AE849F228A4FDE4004F57C7 /* MAGDebugPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE849C528A4FDE4004F57C7 /* MAGDebugPanel.m */; };
 		3AE849F328A4FDE4004F57C7 /* MAGMetamacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE849C628A4FDE4004F57C7 /* MAGMetamacros.h */; };
-		3AE849F428A4FDE4004F57C7 /* MAGSettingsPanelVC.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE849C728A4FDE4004F57C7 /* MAGSettingsPanelVC.h */; };
+		3AE849F428A4FDE4004F57C7 /* MAGSettingsPanelVC.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE849C728A4FDE4004F57C7 /* MAGSettingsPanelVC.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3AE849F528A4FDE4004F57C7 /* UIView+Constraints.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE849C828A4FDE4004F57C7 /* UIView+Constraints.h */; };
-		3AE849F628A4FDE4004F57C7 /* MAGDebugPanelSettingsKeys.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE849C928A4FDE4004F57C7 /* MAGDebugPanelSettingsKeys.h */; };
+		3AE849F628A4FDE4004F57C7 /* MAGDebugPanelSettingsKeys.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE849C928A4FDE4004F57C7 /* MAGDebugPanelSettingsKeys.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3AE849F728A4FDE4004F57C7 /* MAGUDSettingsStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE849CA28A4FDE4004F57C7 /* MAGUDSettingsStorage.m */; };
-		3AE849F828A4FDE4004F57C7 /* MAGDebugPanelRespondersManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE849CB28A4FDE4004F57C7 /* MAGDebugPanelRespondersManager.h */; };
+		3AE849F828A4FDE4004F57C7 /* MAGDebugPanelRespondersManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE849CB28A4FDE4004F57C7 /* MAGDebugPanelRespondersManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3AE849F928A4FDE4004F57C7 /* MAGMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE849CC28A4FDE4004F57C7 /* MAGMacros.h */; };
-		3AE849FA28A4FDE4004F57C7 /* MAGDebugPanel.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE849CD28A4FDE4004F57C7 /* MAGDebugPanel.h */; };
+		3AE849FA28A4FDE4004F57C7 /* MAGDebugPanel.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE849CD28A4FDE4004F57C7 /* MAGDebugPanel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3AE849FB28A4FDE4004F57C7 /* UIView+Constraints.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE849CE28A4FDE4004F57C7 /* UIView+Constraints.m */; };
 		3AE849FC28A4FDE4004F57C7 /* MAGSettingsPanelVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE849CF28A4FDE4004F57C7 /* MAGSettingsPanelVC.m */; };
-		3AE849FD28A4FDE4004F57C7 /* MAGSandboxBrowserVC.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE849D128A4FDE4004F57C7 /* MAGSandboxBrowserVC.h */; };
+		3AE849FD28A4FDE4004F57C7 /* MAGSandboxBrowserVC.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE849D128A4FDE4004F57C7 /* MAGSandboxBrowserVC.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3AE849FE28A4FDE4004F57C7 /* MAGSandboxBrowserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE849D228A4FDE4004F57C7 /* MAGSandboxBrowserVC.m */; };
-		3AE849FF28A4FDE4004F57C7 /* MAGDebugKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE849D628A4FDE4004F57C7 /* MAGDebugKit.h */; };
+		3AE849FF28A4FDE4004F57C7 /* MAGDebugKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE849D628A4FDE4004F57C7 /* MAGDebugKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -157,22 +157,22 @@
 		3AE849AC28A4FDE4004F57C7 /* DebugPanel */ = {
 			isa = PBXGroup;
 			children = (
-				3AE849AD28A4FDE4004F57C7 /* MAGDebugPanelRespondersManager.m */,
-				3AE849AE28A4FDE4004F57C7 /* MAGUDSettingsStorage.h */,
 				3AE849AF28A4FDE4004F57C7 /* Cells */,
-				3AE849C328A4FDE4004F57C7 /* MAGDebugPanelSettingsKeys.m */,
-				3AE849C428A4FDE4004F57C7 /* MAGSettingsReactor.h */,
+				3AE849CD28A4FDE4004F57C7 /* MAGDebugPanel.h */,
 				3AE849C528A4FDE4004F57C7 /* MAGDebugPanel.m */,
+				3AE849CB28A4FDE4004F57C7 /* MAGDebugPanelRespondersManager.h */,
+				3AE849AD28A4FDE4004F57C7 /* MAGDebugPanelRespondersManager.m */,
+				3AE849C928A4FDE4004F57C7 /* MAGDebugPanelSettingsKeys.h */,
+				3AE849C328A4FDE4004F57C7 /* MAGDebugPanelSettingsKeys.m */,
+				3AE849CC28A4FDE4004F57C7 /* MAGMacros.h */,
 				3AE849C628A4FDE4004F57C7 /* MAGMetamacros.h */,
 				3AE849C728A4FDE4004F57C7 /* MAGSettingsPanelVC.h */,
-				3AE849C828A4FDE4004F57C7 /* UIView+Constraints.h */,
-				3AE849C928A4FDE4004F57C7 /* MAGDebugPanelSettingsKeys.h */,
-				3AE849CA28A4FDE4004F57C7 /* MAGUDSettingsStorage.m */,
-				3AE849CB28A4FDE4004F57C7 /* MAGDebugPanelRespondersManager.h */,
-				3AE849CC28A4FDE4004F57C7 /* MAGMacros.h */,
-				3AE849CD28A4FDE4004F57C7 /* MAGDebugPanel.h */,
-				3AE849CE28A4FDE4004F57C7 /* UIView+Constraints.m */,
 				3AE849CF28A4FDE4004F57C7 /* MAGSettingsPanelVC.m */,
+				3AE849C428A4FDE4004F57C7 /* MAGSettingsReactor.h */,
+				3AE849AE28A4FDE4004F57C7 /* MAGUDSettingsStorage.h */,
+				3AE849CA28A4FDE4004F57C7 /* MAGUDSettingsStorage.m */,
+				3AE849C828A4FDE4004F57C7 /* UIView+Constraints.h */,
+				3AE849CE28A4FDE4004F57C7 /* UIView+Constraints.m */,
 			);
 			path = DebugPanel;
 			sourceTree = "<group>";
@@ -180,25 +180,25 @@
 		3AE849AF28A4FDE4004F57C7 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				3AE849B028A4FDE4004F57C7 /* MAGPanelInputCell.h */,
-				3AE849B128A4FDE4004F57C7 /* MAGPanelTitleCell.h */,
-				3AE849B228A4FDE4004F57C7 /* MAGPanelSeparator.h */,
-				3AE849B328A4FDE4004F57C7 /* MAGPanelPickerCell.m */,
-				3AE849B428A4FDE4004F57C7 /* MAGPanelCell.h */,
-				3AE849B528A4FDE4004F57C7 /* MAGPanelToggleCell.h */,
 				3AE849B628A4FDE4004F57C7 /* MAGPanelButtonCell.h */,
-				3AE849B728A4FDE4004F57C7 /* MAGPanelPickerManager.m */,
-				3AE849B828A4FDE4004F57C7 /* MAGPanelGeometry.h */,
-				3AE849B928A4FDE4004F57C7 /* MAGRestrictedTextField.h */,
-				3AE849BA28A4FDE4004F57C7 /* MAGPanelSeparator.m */,
-				3AE849BB28A4FDE4004F57C7 /* MAGPanelTitleCell.m */,
-				3AE849BC28A4FDE4004F57C7 /* MAGPanelInputCell.m */,
-				3AE849BD28A4FDE4004F57C7 /* MAGPanelToggleCell.m */,
-				3AE849BE28A4FDE4004F57C7 /* MAGPanelPickerCell.h */,
-				3AE849BF28A4FDE4004F57C7 /* MAGPanelPickerManager.h */,
 				3AE849C028A4FDE4004F57C7 /* MAGPanelButtonCell.m */,
-				3AE849C128A4FDE4004F57C7 /* MAGRestrictedTextField.m */,
+				3AE849B428A4FDE4004F57C7 /* MAGPanelCell.h */,
+				3AE849B828A4FDE4004F57C7 /* MAGPanelGeometry.h */,
 				3AE849C228A4FDE4004F57C7 /* MAGPanelGeometry.m */,
+				3AE849B028A4FDE4004F57C7 /* MAGPanelInputCell.h */,
+				3AE849BC28A4FDE4004F57C7 /* MAGPanelInputCell.m */,
+				3AE849BE28A4FDE4004F57C7 /* MAGPanelPickerCell.h */,
+				3AE849B328A4FDE4004F57C7 /* MAGPanelPickerCell.m */,
+				3AE849BF28A4FDE4004F57C7 /* MAGPanelPickerManager.h */,
+				3AE849B728A4FDE4004F57C7 /* MAGPanelPickerManager.m */,
+				3AE849B228A4FDE4004F57C7 /* MAGPanelSeparator.h */,
+				3AE849BA28A4FDE4004F57C7 /* MAGPanelSeparator.m */,
+				3AE849B128A4FDE4004F57C7 /* MAGPanelTitleCell.h */,
+				3AE849BB28A4FDE4004F57C7 /* MAGPanelTitleCell.m */,
+				3AE849B528A4FDE4004F57C7 /* MAGPanelToggleCell.h */,
+				3AE849BD28A4FDE4004F57C7 /* MAGPanelToggleCell.m */,
+				3AE849B928A4FDE4004F57C7 /* MAGRestrictedTextField.h */,
+				3AE849C128A4FDE4004F57C7 /* MAGRestrictedTextField.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -219,28 +219,28 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3AE849DE28A4FDE4004F57C7 /* MAGPanelTitleCell.h in Headers */,
+				3AE849FF28A4FDE4004F57C7 /* MAGDebugKit.h in Headers */,
+				3AE849FA28A4FDE4004F57C7 /* MAGDebugPanel.h in Headers */,
 				3AE849F428A4FDE4004F57C7 /* MAGSettingsPanelVC.h in Headers */,
-				3AE849EB28A4FDE4004F57C7 /* MAGPanelPickerCell.h in Headers */,
+				3AE849F628A4FDE4004F57C7 /* MAGDebugPanelSettingsKeys.h in Headers */,
 				3AE849DC28A4FDE4004F57C7 /* MAGUDSettingsStorage.h in Headers */,
-				3AE849F828A4FDE4004F57C7 /* MAGDebugPanelRespondersManager.h in Headers */,
+				3AE849DE28A4FDE4004F57C7 /* MAGPanelTitleCell.h in Headers */,
+				3AE849EB28A4FDE4004F57C7 /* MAGPanelPickerCell.h in Headers */,
 				3AE849FD28A4FDE4004F57C7 /* MAGSandboxBrowserVC.h in Headers */,
 				3AE849DD28A4FDE4004F57C7 /* MAGPanelInputCell.h in Headers */,
-				3AE849F928A4FDE4004F57C7 /* MAGMacros.h in Headers */,
-				3AE849E528A4FDE4004F57C7 /* MAGPanelGeometry.h in Headers */,
-				3AE849F528A4FDE4004F57C7 /* UIView+Constraints.h in Headers */,
 				3AE849E328A4FDE4004F57C7 /* MAGPanelButtonCell.h in Headers */,
 				3AE849E628A4FDE4004F57C7 /* MAGRestrictedTextField.h in Headers */,
-				3AE849F128A4FDE4004F57C7 /* MAGSettingsReactor.h in Headers */,
-				3AE849FF28A4FDE4004F57C7 /* MAGDebugKit.h in Headers */,
 				3AE849EC28A4FDE4004F57C7 /* MAGPanelPickerManager.h in Headers */,
 				3AE849E228A4FDE4004F57C7 /* MAGPanelToggleCell.h in Headers */,
-				3AE849F628A4FDE4004F57C7 /* MAGDebugPanelSettingsKeys.h in Headers */,
 				3AE849DF28A4FDE4004F57C7 /* MAGPanelSeparator.h in Headers */,
-				3AE849D928A4FDE4004F57C7 /* MAGSwizzling.h in Headers */,
-				3AE849FA28A4FDE4004F57C7 /* MAGDebugPanel.h in Headers */,
-				3AE849F328A4FDE4004F57C7 /* MAGMetamacros.h in Headers */,
 				3AE849E128A4FDE4004F57C7 /* MAGPanelCell.h in Headers */,
+				3AE849F828A4FDE4004F57C7 /* MAGDebugPanelRespondersManager.h in Headers */,
+				3AE849F128A4FDE4004F57C7 /* MAGSettingsReactor.h in Headers */,
+				3AE849F928A4FDE4004F57C7 /* MAGMacros.h in Headers */,
+				3AE849F528A4FDE4004F57C7 /* UIView+Constraints.h in Headers */,
+				3AE849E528A4FDE4004F57C7 /* MAGPanelGeometry.h in Headers */,
+				3AE849D928A4FDE4004F57C7 /* MAGSwizzling.h in Headers */,
+				3AE849F328A4FDE4004F57C7 /* MAGMetamacros.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
