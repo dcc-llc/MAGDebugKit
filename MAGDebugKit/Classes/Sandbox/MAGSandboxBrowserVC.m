@@ -46,7 +46,7 @@ static NSString *const sandboxBrowserCellId = @"sandboxBrowserCellId";
 	self.searchController.searchBar.delegate = self;
 	[self.searchController.searchBar sizeToFit];
 	self.searchController.searchResultsUpdater = self;
-	self.searchController.dimsBackgroundDuringPresentation = NO;
+	self.searchController.obscuresBackgroundDuringPresentation = NO;
 	self.definesPresentationContext = YES;
 	self.tableView.tableHeaderView = self.searchController.searchBar;
 

@@ -19,7 +19,7 @@
 @property (nonatomic) MAGDebugPanelRespondersManager *respondersManager;
 
 @property (nonatomic) UIStackView *stackView;
-@property (nonatomic) NSMutableArray *pickerManagers;
+@property (nonatomic) NSMutableArray<MAGPanelPickerManager *> *pickerManagers;
 
 @end
 
