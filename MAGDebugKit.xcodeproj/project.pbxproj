@@ -19,7 +19,7 @@
 		3AE849E228A4FDE4004F57C7 /* MAGPanelToggleCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE849B528A4FDE4004F57C7 /* MAGPanelToggleCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3AE849E328A4FDE4004F57C7 /* MAGPanelButtonCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE849B628A4FDE4004F57C7 /* MAGPanelButtonCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3AE849E428A4FDE4004F57C7 /* MAGPanelPickerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE849B728A4FDE4004F57C7 /* MAGPanelPickerManager.m */; };
-		3AE849E528A4FDE4004F57C7 /* MAGPanelGeometry.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE849B828A4FDE4004F57C7 /* MAGPanelGeometry.h */; };
+		3AE849E528A4FDE4004F57C7 /* MAGPanelGeometry.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE849B828A4FDE4004F57C7 /* MAGPanelGeometry.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3AE849E628A4FDE4004F57C7 /* MAGRestrictedTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE849B928A4FDE4004F57C7 /* MAGRestrictedTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3AE849E728A4FDE4004F57C7 /* MAGPanelSeparator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE849BA28A4FDE4004F57C7 /* MAGPanelSeparator.m */; };
 		3AE849E828A4FDE4004F57C7 /* MAGPanelTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE849BB28A4FDE4004F57C7 /* MAGPanelTitleCell.m */; };
@@ -230,6 +230,7 @@
 				3AE849DD28A4FDE4004F57C7 /* MAGPanelInputCell.h in Headers */,
 				3AE849E328A4FDE4004F57C7 /* MAGPanelButtonCell.h in Headers */,
 				3AE849E628A4FDE4004F57C7 /* MAGRestrictedTextField.h in Headers */,
+				3AE849E528A4FDE4004F57C7 /* MAGPanelGeometry.h in Headers */,
 				3AE849EC28A4FDE4004F57C7 /* MAGPanelPickerManager.h in Headers */,
 				3AE849E228A4FDE4004F57C7 /* MAGPanelToggleCell.h in Headers */,
 				3AE849DF28A4FDE4004F57C7 /* MAGPanelSeparator.h in Headers */,
@@ -238,7 +239,6 @@
 				3AE849F128A4FDE4004F57C7 /* MAGSettingsReactor.h in Headers */,
 				3AE849F928A4FDE4004F57C7 /* MAGMacros.h in Headers */,
 				3AE849F528A4FDE4004F57C7 /* UIView+Constraints.h in Headers */,
-				3AE849E528A4FDE4004F57C7 /* MAGPanelGeometry.h in Headers */,
 				3AE849D928A4FDE4004F57C7 /* MAGSwizzling.h in Headers */,
 				3AE849F328A4FDE4004F57C7 /* MAGMetamacros.h in Headers */,
 			);

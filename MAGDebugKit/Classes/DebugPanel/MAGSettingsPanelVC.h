@@ -30,6 +30,8 @@
 - (MAGPanelPickerManager *)addPickerWithTitle:(NSString *)title key:(NSString *)key
 	options:(NSArray *)options optionRenderer:(NSString *(^)(id value))renderer;
 
+- (void)addCustomCell:(__kindof UIView<MAGPanelCell> *)cell addSeparator:(BOOL)addSeparator;
+
 - (void)removeCell:(__kindof UIView<MAGPanelCell> *)cell;
 
 @end
