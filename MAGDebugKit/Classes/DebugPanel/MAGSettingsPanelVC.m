@@ -149,14 +149,14 @@
 	return pickerManager;
 }
 
-- (void)addCustomCell:(__kindof UIView<MAGPanelCell> *)cell addSeparator:(BOOL)addSeparator {
+- (void)addCustomCell:(nonnull __kindof UIView<MAGPanelCell> *)cell addSeparator:(BOOL)addSeparator {
 	[self.stackView addArrangedSubview:cell];
 	if (addSeparator) {
 		[self addSeparatorFor:cell];
 	}
 }
 
-- (void)removeCell:(__kindof UIView<MAGPanelCell> *)cell {
+- (void)removeCell:(nonnull __kindof UIView<MAGPanelCell> *)cell {
 	[cell.separator removeFromSuperview];
 	[cell removeFromSuperview];
 }

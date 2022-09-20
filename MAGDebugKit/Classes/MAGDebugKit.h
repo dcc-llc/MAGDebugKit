@@ -26,5 +26,6 @@
 #import "MAGPanelCell.h"
 #import "MAGDebugPanelRespondersManager.h"
 #import "MAGSettingsReactor.h"
+#import "MAGPanelGeometry.h"
 
 #endif /* MAGDebugKit_h */

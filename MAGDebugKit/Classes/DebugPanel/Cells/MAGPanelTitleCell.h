@@ -1,5 +1,5 @@
 #import <UIKit/UIKit.h>
-#import <MAGPanelCell.h>
+#import "MAGPanelCell.h"
 
 
 @interface MAGPanelTitleCell : UIView <MAGPanelCell>

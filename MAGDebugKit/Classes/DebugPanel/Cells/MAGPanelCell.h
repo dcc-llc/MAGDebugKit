@@ -6,6 +6,6 @@
 
 @protocol MAGPanelCell <NSObject>
 
-@property (nonatomic, weak) MAGPanelSeparator *separator;
+@property (nonatomic, weak, nullable) MAGPanelSeparator *separator;
 
 @end
