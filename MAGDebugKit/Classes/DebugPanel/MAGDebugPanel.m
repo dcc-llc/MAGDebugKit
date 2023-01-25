@@ -70,18 +70,19 @@
 }
 
 - (void)showAnimated:(BOOL)animated {
-	CGRect finalRect = self.window.frame;
-
 	self.window.hidden = NO;
+
+	CGRect frame = self.window.frame;
+	frame.origin.x = 0;
 
 	if (animated) {
 		[UIView
-			animateWithDuration:0.25
-			animations:^{
-				self.window.frame = finalRect;
-			}];
+		 animateWithDuration:0.25
+		 animations:^{
+			self.window.frame = frame;
+		}];
 	} else {
-		self.window.frame = finalRect;
+		self.window.frame = frame;
 	}
 }
 
