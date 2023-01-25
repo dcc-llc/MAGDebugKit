@@ -69,6 +69,22 @@
 	self.window = nil;
 }
 
+- (void)showAnimated:(BOOL)animated {
+	CGRect finalRect = self.window.frame;
+
+	self.window.hidden = NO;
+
+	if (animated) {
+		[UIView
+			animateWithDuration:0.25
+			animations:^{
+				self.window.frame = finalRect;
+			}];
+	} else {
+		self.window.frame = finalRect;
+	}
+}
+
 - (void)addAction:(void(^)(void))action withTitle:(NSString *)title {
 	[self loadViewIfNeeded];
 
@@ -169,7 +185,6 @@
 	finalRect.origin.x = self.window.frame.size.width;
 
 	if (animated) {
-		//[UIView animateWithDuration:0.25 animations:^{
 		[UIView
 			animateWithDuration:0.25
 			animations:^{

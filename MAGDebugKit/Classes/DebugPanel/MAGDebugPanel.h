@@ -32,6 +32,7 @@ typedef NS_ENUM(NSUInteger, MAGDebugPanelDefaultAction) {
 - (void)addDefaultAction:(MAGDebugPanelDefaultAction)action;
 - (void)addAction:(void(^)(void))action withTitle:(NSString *)title;
 
+- (void)showAnimated:(BOOL)animated;
 - (void)hideAnimated:(BOOL)animated;
 
 @end
