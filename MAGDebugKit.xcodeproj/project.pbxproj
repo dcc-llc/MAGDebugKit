@@ -46,6 +46,7 @@
 		3AE849FD28A4FDE4004F57C7 /* MAGSandboxBrowserVC.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE849D128A4FDE4004F57C7 /* MAGSandboxBrowserVC.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3AE849FE28A4FDE4004F57C7 /* MAGSandboxBrowserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE849D228A4FDE4004F57C7 /* MAGSandboxBrowserVC.m */; };
 		3AE849FF28A4FDE4004F57C7 /* MAGDebugKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE849D628A4FDE4004F57C7 /* MAGDebugKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3B8BF9D52BC7EC68001B5882 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 3B8BF9D42BC7EC68001B5882 /* PrivacyInfo.xcprivacy */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +90,7 @@
 		3AE849D128A4FDE4004F57C7 /* MAGSandboxBrowserVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAGSandboxBrowserVC.h; sourceTree = "<group>"; };
 		3AE849D228A4FDE4004F57C7 /* MAGSandboxBrowserVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAGSandboxBrowserVC.m; sourceTree = "<group>"; };
 		3AE849D628A4FDE4004F57C7 /* MAGDebugKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAGDebugKit.h; sourceTree = "<group>"; };
+		3B8BF9D42BC7EC68001B5882 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 		3AE8499D28A4FDB5004F57C7 /* MAGDebugKit */ = {
 			isa = PBXGroup;
 			children = (
+				3B8BF9D42BC7EC68001B5882 /* PrivacyInfo.xcprivacy */,
 				3AE849A528A4FDE4004F57C7 /* Assets */,
 				3AE849A728A4FDE4004F57C7 /* Classes */,
 			);
@@ -302,6 +305,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B8BF9D52BC7EC68001B5882 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
