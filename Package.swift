@@ -13,8 +13,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "MAGDebugKit",
-            url: "https://github.com/dcc-llc/MAGDebugKit/releases/download/0.9.6/MAGDebugKit-0.9.6.xcframework.zip",
-            checksum: "2e2c0d0442e2e7886e0307da35064bfcd6a089600beb74b9738e78a07d0d4d20"
+            url: "https://github.com/dcc-llc/MAGDebugKit/releases/download/0.9.8/MAGDebugKit-signed.xcframework.zip",
+            checksum: "c2255d41e05e095054694ba30023ff4e82dd0b7398ff8e8e4b1712c30c58a67d"
         ),
     ]
 )
